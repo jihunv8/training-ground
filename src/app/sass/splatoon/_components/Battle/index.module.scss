@@ -1,0 +1,19 @@
+.wrapper {
+  position: relative;
+  z-index: 1;
+  margin-top: -7.7604166667vw;
+
+  .battle1 {
+    height: 58.6458333333vw;
+
+    background: url(../../_images/bg_battle_1.png);
+  }
+
+  .battle2 {
+    margin-top: -8.0729166667vw;
+
+    height: 67.7604166667vw;
+
+    background: url(../../_images/bg_battle_2.png);
+  }
+}

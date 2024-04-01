@@ -1,0 +1,9 @@
+@function calcPxToVW($valueOfPX) {
+  @return calc($valueOfPX / 1920 * 100vw);
+}
+
+.wrapper {
+  margin-top: -13.75vw;
+  padding-top: 13.75vw;
+  background: url(../../_images/bg_news.png) repeat-y center top;
+}
