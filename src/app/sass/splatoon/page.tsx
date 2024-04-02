@@ -1,5 +1,7 @@
 'use client';
 
+import { Noto_Sans_KR } from 'next/font/google';
+
 import './_styles/global.scss';
 import style from './page.module.scss';
 import { useEffect } from 'react';
@@ -8,21 +10,24 @@ import Poster from './_components/Poster';
 import News from './_components/News';
 import Battle from './_components/Battle';
 
+const NotoSansKR = Noto_Sans_KR({
+  weight: ['400', '700', '900'],
+  style: ['normal'],
+  subsets: ['latin'],
+});
+
 export default function Page() {
   useEffect(() => {
-    // 스크롤 위치 복원을 비활성화합니다.
     if ('scrollRestoration' in window.history) {
       window.history.scrollRestoration = 'manual';
     }
 
-    // Cleanup 함수
     return () => {
-      // 페이지를 이동할 때 원래의 스크롤 복원 기능을 다시 활성화합니다.
       window.history.scrollRestoration = 'auto';
     };
   }, []);
   return (
-    <div className={style.wrapper}>
+    <div className={`${style.wrapper} ${NotoSansKR.className}`}>
       <Poster />
       <News />
       <Battle />

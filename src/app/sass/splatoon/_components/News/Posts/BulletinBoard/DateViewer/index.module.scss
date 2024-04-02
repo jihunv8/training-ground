@@ -1,0 +1,63 @@
+.wrapper {
+  .number {
+    display: inline-block;
+    height: 0.9895833333vw;
+    margin-left: 0.0520833333vw;
+
+    overflow: hidden;
+    text-indent: 100%;
+
+    background: no-repeat center / cover;
+
+    $x-small: 0.2604166667vw; /* 5px */
+    $small: 0.5208333333vw; /* 10px */
+    $middle: 0.78125vw; /* 15px */
+    $large: 0.8333333333vw;
+    $x-large: 0.8854166667vw; /* 17px */
+
+    &.num0 {
+      width: $large;
+      background-image: url(../../../../../_images/numbers/0.png);
+    }
+    &.num1 {
+      width: $small;
+      background-image: url(../../../../../_images/numbers/1.png);
+    }
+    &.num2 {
+      width: $middle;
+      background-image: url(../../../../../_images/numbers/2.png);
+    }
+    &.num3 {
+      width: $middle;
+      background-image: url(../../../../../_images/numbers/3.png);
+    }
+    &.num4 {
+      width: $middle;
+      background-image: url(../../../../../_images/numbers/4.png);
+    }
+    &.num5 {
+      width: $middle;
+      background-image: url(../../../../../_images/numbers/5.png);
+    }
+    &.num6 {
+      width: $x-large;
+      background-image: url(../../../../../_images/numbers/6.png);
+    }
+    &.num7 {
+      width: $middle;
+      background-image: url(../../../../../_images/numbers/7.png);
+    }
+    &.num8 {
+      width: $middle;
+      background-image: url(../../../../../_images/numbers/8.png);
+    }
+    &.num9 {
+      width: $x-large;
+      background-image: url(../../../../../_images/numbers/9.png);
+    }
+    &.dot {
+      width: $x-small;
+      background-image: url(../../../../../_images/numbers/dot.png);
+    }
+  }
+}

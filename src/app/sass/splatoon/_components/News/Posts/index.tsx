@@ -8,6 +8,7 @@ import additionImage from '../../../_images/banners/banner_addition.png';
 import interviewImage from '../../../_images/banners/banner_interview.png';
 import { useState } from 'react';
 import { useIntersectionObserver } from '../../../_hooks/useIntersectionObserver';
+import BulletinBoard from '@/app/sass/splatoon/_components/News/Posts/BulletinBoard';
 
 const getBanners = () => [
   {
@@ -38,12 +39,17 @@ export default function Posts() {
     };
   };
 
-  const handleNewPostsBannerAnimation = createHandleIntersection(() => setIsVisible(true));
+  const handleNewPostsBannerAnimation = createHandleIntersection(() => {
+    setIsVisible(true);
+  });
   const handleForBeginnerAnimation = createHandleIntersection(() => setIsVisibleForBiginner(true));
 
   const intersectionObserverOptions: IntersectionObserverInit = { threshold: 1 };
 
-  const newPostsBanner = useIntersectionObserver(handleNewPostsBannerAnimation, intersectionObserverOptions);
+  const newPostsBanner = useIntersectionObserver<HTMLDivElement>(
+    handleNewPostsBannerAnimation,
+    intersectionObserverOptions,
+  );
   const forBeginner = useIntersectionObserver<HTMLAnchorElement>(
     handleForBeginnerAnimation,
     intersectionObserverOptions,
@@ -77,17 +83,7 @@ export default function Posts() {
 
   return (
     <section className={style.wrapper}>
-      <section ref={newPostsBanner} className={`${style.newsPostsBanner} ${isVisible ? style.visible : ''}`}>
-        <div className={style.newsPostsBannerBody}>
-          <div>내용이다</div>
-          <div>내용이다</div>
-          <div>내용이다</div>
-          <div>내용이다</div>
-          <div>내용이다</div>
-          <div>내용이다</div>
-          <div>내용이다</div>
-        </div>
-      </section>
+      <BulletinBoard ref={newPostsBanner} visible={isVisible} />
       <section className={style.bennersWrapper}>
         <div className={style.bannersHead}>
           <Link
