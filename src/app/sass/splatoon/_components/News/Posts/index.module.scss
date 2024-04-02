@@ -2,6 +2,21 @@
   @return calc($valueOfPX / 1920 * 100vw);
 }
 
+@mixin visible {
+  opacity: 0;
+  transform: scale(0.5, 0.5);
+  transition:
+    opacity,
+    transform 0.3s cubic-bezier(0.5, 1.5, 0.8, 1.1);
+
+  &.visible {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+
+  @content;
+}
+
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -14,6 +29,8 @@
     background:
       url(../../../_images/bg_news2_top.png) no-repeat center top / 100% auto,
       url(../../../_images//bg_news2_bottom.png) no-repeat center bottom / 100% auto;
+
+    @include visible;
 
     .newsPostsBannerBody {
       padding: 0.5729166667vw 1.6145833333vw 0.5729166667vw 5.1041666667vw;
@@ -47,9 +64,13 @@
         background: url(../../../_images/banners/banner_interview.png) no-repeat center top / cover;
       }
 
-      transition: transform 250ms cubic-bezier(0.34, 1.3, 0.64, 1);
-      &:hover {
-        transform: scale(1.05);
+      @include visible {
+        &.visible {
+          transition: transform 250ms cubic-bezier(0.34, 1.3, 0.64, 1);
+          &:hover {
+            transform: scale(1.05);
+          }
+        }
       }
     }
 
