@@ -1,7 +1,3 @@
-@function calcPxToVW($valueOfPX) {
-  @return calc($valueOfPX / 1920 * 100vw);
-}
-
 .wrapper {
   margin-top: -13.75vw;
   padding-top: 13.75vw;

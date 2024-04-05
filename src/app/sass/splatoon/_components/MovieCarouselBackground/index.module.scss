@@ -1,13 +1,12 @@
 .wrapper {
   width: 100%;
   height: 35.2083333333vw;
-
-  margin-top: -5.8333333333vw;
   padding-top: 9.21875vw;
 
   clip-path: polygon(0% 0%, 100% 15.8%, 100% 100%, 0% 100%);
 
   position: relative;
+  z-index: 0;
 
   .bg {
     width: 100%;
@@ -16,7 +15,6 @@
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 0;
 
     &::after {
       /* 어둡게 처리하는 용도 */

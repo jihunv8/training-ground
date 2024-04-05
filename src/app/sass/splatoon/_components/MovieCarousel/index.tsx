@@ -1,9 +1,9 @@
-import MovieItem from '@/app/sass/splatoon/_components/News/Movies/MovieCarousel/MovieItem';
+import MovieItem from '@/app/sass/splatoon/_components/MovieCarousel/MovieItem';
 import style from './index.module.scss';
-import { getMovies } from '@sass/splatoon/_components/News/Movies/MovieCarousel/moviesData';
+import { getMovies } from '@/app/sass/splatoon/_components/MovieCarousel/moviesData';
 
 import { useEffect, useState } from 'react';
-import MovieNav from '@/app/sass/splatoon/_components/News/Movies/MovieCarousel/MovieNav';
+import MovieNav from '@/app/sass/splatoon/_components/MovieCarousel/MovieNav';
 
 export default function MovieCarousel() {
   const movies = getMovies();
@@ -33,31 +33,33 @@ export default function MovieCarousel() {
   };
 
   return (
-    <div className={style.wrapper}>
-      <ul style={dynamicStyle}>
-        {movies.map(({ id, thumbnail, href, title }, i) => {
-          return (
-            <MovieItem
-              key={id}
-              thumbnail={thumbnail}
-              href={href}
-              title={title}
-              width={itemWidth}
-              current={currentIndex === i}
-            />
-          );
-        })}
-      </ul>
-      <section className={style.movieBottom}>
-        <MovieNav
-          currentIndex={currentIndex}
-          length={movies.length}
-          onMove={handleMove}
-          onPrev={handlePrev}
-          onNext={handleNext}
-        />
-      </section>
-    </div>
+    <section className={style.wrapper}>
+      <div className={style.carousel}>
+        <ul style={dynamicStyle}>
+          {movies.map(({ id, thumbnail, href, title }, i) => {
+            return (
+              <MovieItem
+                key={id}
+                thumbnail={thumbnail}
+                href={href}
+                title={title}
+                width={itemWidth}
+                current={currentIndex === i}
+              />
+            );
+          })}
+        </ul>
+        <section className={style.movieBottom}>
+          <MovieNav
+            currentIndex={currentIndex}
+            length={movies.length}
+            onMove={handleMove}
+            onPrev={handlePrev}
+            onNext={handleNext}
+          />
+        </section>
+      </div>
+    </section>
   );
 }
 

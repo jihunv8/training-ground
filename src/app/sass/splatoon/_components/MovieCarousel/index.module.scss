@@ -1,0 +1,26 @@
+.wrapper {
+  position: relative;
+  margin-top: -5.8333333333vw;
+  .carousel {
+    width: 100%;
+    overflow: hidden;
+
+    position: absolute;
+    top: 9.21875vw;
+    z-index: 2;
+
+    --itemWidth: calc(100vw / 4);
+
+    > ul {
+      --half: calc(100vw / 2 - (var(--itemWidth) / 2));
+      transform: translate3d(var(--half), 0px, 0px);
+      transition: transform 0.3s;
+      display: flex;
+    }
+
+    > .movieBottom {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
