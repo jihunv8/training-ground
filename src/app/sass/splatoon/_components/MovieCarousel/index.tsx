@@ -1,9 +1,12 @@
-import MovieItem from '@/app/sass/splatoon/_components/MovieCarousel/MovieItem';
+'use client';
+
 import style from './index.module.scss';
 import { getMovies } from '@/app/sass/splatoon/_components/MovieCarousel/moviesData';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import MovieNav from '@/app/sass/splatoon/_components/MovieCarousel/MovieNav';
+import MovieItem from '@/app/sass/splatoon/_components/MovieCarousel/MovieItem';
+import { useInnerWidth } from '@/app/sass/splatoon/_hooks/useInnerWidth';
 
 export default function MovieCarousel() {
   const movies = getMovies();
@@ -62,19 +65,3 @@ export default function MovieCarousel() {
     </section>
   );
 }
-
-const useInnerWidth = () => {
-  const [innerWidth, setInnerWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setInnerWidth(window.innerWidth);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => window.removeEventListener('resize', handleResize);
-  });
-
-  return innerWidth;
-};

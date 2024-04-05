@@ -15,7 +15,7 @@ export default function MovieNav({ currentIndex, length, onMove, onPrev, onNext 
     const isCurrent = i === currentIndex;
 
     return (
-      <button className={`${style.indexBtn} ${isCurrent && style.current}`} onClick={() => onMove(i)}>
+      <button key={i} className={`${style.indexBtn} ${isCurrent && style.current}`} onClick={() => onMove(i)}>
         {i}
       </button>
     );
