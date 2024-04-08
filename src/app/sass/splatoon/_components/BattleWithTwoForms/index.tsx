@@ -5,7 +5,6 @@ export default function BattleWithTwoForms() {
   const initVisibleTable = { title: false, text: false, moreDetailBtn: false };
 
   const [visibleTable, setVisibleTable] = useState(initVisibleTable);
-  console.log(visibleTable);
 
   const createVisibleHandler = (name: string): IntersectionObserverCallback => {
     return ([entry], observer) => {
