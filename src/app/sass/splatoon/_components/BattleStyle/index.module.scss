@@ -1,0 +1,362 @@
+@mixin layer {
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@mixin infiniteImage($name, $img1, $img1W, $img2, $img2W, $imgH, $duration) {
+  .image {
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: 100% auto;
+
+    &.image1 {
+      width: $img1W;
+      height: $imgH;
+      background-image: $img1;
+
+      position: absolute;
+      left: 0;
+      top: 0;
+
+      $delay: -(calc(($img2W/($img1W + $img2W)) * $duration));
+      animation: #{$name}-image-loop1 $duration $delay linear infinite;
+      animation-play-state: paused;
+
+      @keyframes #{$name}-image-loop1 {
+        0% {
+          transform: translate3d($img2W, 0, 0);
+        }
+        100% {
+          transform: translate3d(-$img1W, 0, 0);
+        }
+      }
+    }
+
+    &.image2 {
+      width: $img2W;
+      height: $imgH;
+      background-image: $img2;
+
+      position: absolute;
+      left: $img1W;
+      top: 0;
+
+      animation: #{$name}-image-loop2 $duration linear infinite;
+      animation-play-state: paused;
+
+      @keyframes #{$name}-image-loop2 {
+        0% {
+          transform: translate3d(0, 0, 0);
+        }
+        100% {
+          transform: translate3d(-($img1W + $img2W), 0, 0);
+        }
+      }
+    }
+  }
+}
+
+.wrapper {
+  position: relative;
+  margin-top: -11.7708333333vw;
+  z-index: 0;
+
+  .viewer {
+    width: 100%;
+    height: 100vh;
+    background: url(../../_images/battle-style/bg.jpg) no-repeat center / cover;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    &.fixed {
+      position: fixed;
+    }
+
+    .mainView {
+      @include layer;
+
+      .title {
+        position: absolute;
+        top: 50%;
+        left: 31.6666666667vw;
+
+        width: 34.8958333333vw;
+        height: 11.7361111111vw;
+
+        background: url(../../_images/battle-style/title.png) no-repeat center / cover;
+
+        overflow: hidden;
+        text-indent: -9999%;
+
+        transition:
+          visibility 0s linear,
+          transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+        visibility: hidden;
+        transform: translateY(-182.3%) scale(1.3);
+
+        &.visible {
+          visibility: visible;
+          transform: translateY(-182.3%) scale(1);
+        }
+      }
+
+      .c3 {
+        width: 97.4479166667vw;
+        height: 25.625vw;
+        background: url(../../_images/battle-style/c_3.png) no-repeat center / cover;
+
+        position: absolute;
+        left: -0.1041666667vw;
+        top: 50%;
+
+        transform: translateY(-16.8%);
+
+        transition: opacity 0.3s linear;
+        opacity: 0;
+
+        &.visible {
+          opacity: 1;
+        }
+      }
+    }
+
+    .weaponView {
+      @include layer;
+
+      .weaponsImage {
+        $imgH: 24.7916666667vw;
+
+        width: 100%;
+        height: $imgH;
+
+        position: absolute;
+        left: 0;
+        top: 50%;
+
+        transform: translateY(-28.9%);
+
+        transition: opacity 0.3s linear;
+        opacity: 0;
+
+        &.visible {
+          opacity: 1;
+
+          .image {
+            &.image1,
+            &.image2 {
+              animation-play-state: running;
+            }
+          }
+        }
+
+        @include infiniteImage(
+          weapon,
+          url(../../_images/battle-style/img-weapon1.png),
+          116.71875vw,
+          url(../../_images/battle-style/img-weapon2.png),
+          98.90625vw,
+          24.7916666667vw,
+          28s
+        );
+      }
+
+      .weaponHeader {
+        width: 57.2916666667vw;
+        height: 12.6041666667vw;
+
+        position: absolute;
+        left: 25.3125vw;
+        top: 50%;
+
+        transition:
+          opacity 0.2s linear,
+          transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+        opacity: 0;
+        transform: translate(-15%, -192.5%);
+
+        &.visible {
+          opacity: 1;
+          transform: translate(0, -192.5%);
+        }
+
+        .weaponTitle {
+          width: 37.8125vw;
+          height: 12.6041666667vw;
+          background: url(../../_images/battle-style/title_weapon.png) no-repeat center / cover;
+
+          position: absolute;
+          left: 0;
+          top: 0;
+
+          overflow: hidden;
+          text-indent: -9999%;
+        }
+
+        .weaponDescription {
+          position: absolute;
+          left: 38.125vw;
+          top: 1.9270833333vw;
+
+          font-size: 1.25vw;
+          font-weight: 900;
+          line-height: 1.66;
+          color: #fff;
+
+          transform: rotate(-0.7deg);
+        }
+      }
+
+      .c1 {
+        width: 35.3125vw;
+        height: 36.71875vw;
+        background: url(../../_images/battle-style/c_1.png) no-repeat center / cover;
+
+        position: absolute;
+        left: -1.6145833333vw;
+        top: 50%;
+
+        transition:
+          opacity 0.2s linear,
+          transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+        opacity: 0;
+        transform: translate(-15%, -35.4%);
+
+        &.visible {
+          opacity: 1;
+          transform: translate(0, -35.4%);
+        }
+      }
+    }
+
+    .gearView {
+      @include layer;
+
+      .gearsImage {
+        width: 291.4791666667vw;
+        height: 27.890625vw;
+
+        position: absolute;
+        left: 0;
+        top: 50%;
+
+        transform: translateY(-24.4%);
+
+        transition: opacity 0.3s linear;
+        opacity: 0;
+
+        &.visible {
+          opacity: 1;
+
+          .image {
+            &.image1,
+            &.image2 {
+              animation-play-state: running;
+            }
+          }
+        }
+
+        @include infiniteImage(
+          gear,
+          url(../../_images/battle-style/img-gear1.png),
+          149.1041666667vw,
+          url(../../_images/battle-style/img-gear2.png),
+          142.375vw,
+          27.890625vw,
+          36s
+        );
+      }
+
+      .gearHeader {
+        width: 72.9166666667vw;
+        height: 13.4375vw;
+
+        position: absolute;
+        left: 12.2916666667vw;
+        top: 50%;
+
+        transition:
+          opacity 0.2s linear,
+          transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+        opacity: 0;
+        transform: translate(15%, -164%);
+
+        &.visible {
+          opacity: 1;
+          transform: translate(0, -164%);
+        }
+
+        .gearTitle {
+          width: 35vw;
+          height: 13.4375vw;
+          background: url(../../_images/battle-style/title_gear.png) no-repeat center / cover;
+
+          position: absolute;
+          left: 0;
+          top: 0;
+
+          overflow: hidden;
+          text-indent: -9999%;
+        }
+
+        .gearDescription {
+          position: absolute;
+          left: 35vw;
+          top: 0.2083333333vw;
+
+          font-size: 1.25vw;
+          font-weight: 900;
+          line-height: 1.66;
+          color: #fff;
+
+          transform: rotate(-1.7deg);
+        }
+      }
+
+      .c2 {
+        width: 30.8854166667vw;
+        height: 37.8125vw;
+        background: url(../../_images/battle-style/c_2.png) no-repeat center / cover;
+
+        position: absolute;
+        right: 13.8020833333vw;
+        top: 50%;
+
+        transition:
+          opacity 0.2s linear,
+          transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+        opacity: 0;
+        transform: translate(15%, -36.3%);
+
+        &.visible {
+          opacity: 1;
+          transform: translate(0, -36.3%);
+        }
+      }
+    }
+  }
+
+  .triggerSection {
+    .trigger {
+      height: 100vh;
+
+      background-color: blueviolet;
+      border: solid 10px tomato;
+
+      &:not(:last-child) {
+        margin-bottom: calc(100vh * 0.15);
+      }
+    }
+  }
+}

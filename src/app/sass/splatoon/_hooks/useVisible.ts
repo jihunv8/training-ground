@@ -7,7 +7,11 @@ import { RefCallback, useState } from 'react';
  * @param options
  */
 
-export const useVisible = <T extends HTMLElement = HTMLElement>(length: number, options?: { threshold: number }) => {
+export const useVisible = <T extends HTMLElement = HTMLElement>(
+  length: number,
+  options?: { threshold?: number | [number, number]; isPersistent?: boolean; isActiveHide?: boolean },
+) => {
+  const isPersistent = options?.isPersistent || false;
   const initTable = new Array<boolean>(length);
   initTable.fill(false);
 
@@ -15,9 +19,20 @@ export const useVisible = <T extends HTMLElement = HTMLElement>(length: number, 
 
   const handle: IntersectionObserverCallback = (entries, observer) => {
     entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-
       const visibleId = entry.target.getAttribute('data-visible-id');
+
+      if (!entry.isIntersecting) {
+        if (isPersistent) {
+          setVisibleTable((prev) => {
+            const settedVisibleTable = [...prev];
+            settedVisibleTable[Number(visibleId)] = false;
+            return settedVisibleTable;
+          });
+        }
+
+        return;
+      }
+
       if (visibleId === null) {
         console.warn(entry.target, '해당요소의 data-visible-id 속성이 정의되지 않았습니다.');
         observer.unobserve(entry.target);
@@ -30,7 +45,9 @@ export const useVisible = <T extends HTMLElement = HTMLElement>(length: number, 
         return settedVisibleTable;
       });
 
-      observer.unobserve(entry.target);
+      if (!isPersistent) {
+        observer.unobserve(entry.target);
+      }
     });
   };
 
