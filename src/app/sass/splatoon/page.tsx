@@ -15,6 +15,7 @@ import AreaBattle from '@/app/sass/splatoon/_components/AreaBattle';
 import BattleStyle from '@/app/sass/splatoon/_components/BattleStyle';
 import World from '@/app/sass/splatoon/_components/World';
 import Menu from '@/app/sass/splatoon/_components/Menu';
+import Update from '@/app/sass/splatoon/_components/Update';
 
 const NotoSansKR = Noto_Sans_KR({
   weight: ['400', '700', '900'],
@@ -43,6 +44,7 @@ export default function Page() {
       <BattleStyle />
       <World />
       <Menu />
+      <Update />
     </div>
   );
 }
