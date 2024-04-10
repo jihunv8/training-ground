@@ -8,7 +8,7 @@ export default function World() {
   const [title, subTitle, text] = useVisible(3, { threshold: 0.5 });
 
   return (
-    <div className={namer('wrapper')}>
+    <section className={namer('wrapper')}>
       <div className={namer('movie')}>
         <video src="/assets/sass/splatoon3/videos/world/world-pc.mp4" preload="none" autoPlay muted loop></video>
       </div>
@@ -39,6 +39,6 @@ export default function World() {
         <br />
         독특한 분위기의 지방 도시입니다.
       </p>
-    </div>
+    </section>
   );
 }
