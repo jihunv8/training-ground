@@ -1,0 +1,161 @@
+.wrapper {
+  position: absolute;
+
+  > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  transition:
+    opacity 0.3s linear,
+    transform 0.3s cubic-bezier(0.5, 1.5, 0.8, 1.1);
+  opacity: 0;
+  transform: scale(0.5, 0.5);
+
+  &.visible {
+    transition: transform 250ms cubic-bezier(0.34, 1.3, 0.64, 1);
+    opacity: 1;
+    transform: translate(0px, 0px);
+
+    &:hover {
+      transform: scale(1.05);
+
+      &.battle,
+      &.weapon,
+      &.world {
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &.battle {
+    width: 27.1875vw;
+    height: 36.5277777778vw;
+    background: url(../../../../_images/menu/btn-battle.png) no-repeat center top / cover;
+
+    left: 13.3333333333vw;
+    top: 17.4479166667vw;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 12.4305555556vw;
+      height: 7.0486111111vw;
+      background: url(../../../../_images/menu/btn-battle-text.png) no-repeat center top / cover;
+
+      position: absolute;
+      left: 10.3645833333vw;
+      top: 13.75vw;
+
+      opacity: 0;
+      transition: opacity 0.13s linear;
+    }
+  }
+
+  &.weapon {
+    width: 44.4444444444vw;
+    height: 18.0208333333vw;
+    background: url(../../../../_images/menu/btn-weapon.png) no-repeat center top / cover;
+
+    left: 39.6875vw;
+    top: 18.3333333333vw;
+
+    &::after {
+      content: '';
+      display: block;
+
+      width: 18.3333333333vw;
+      height: 7.2222222222vw;
+      background: url(../../../../_images/menu/btn-weapon-text.png) no-repeat center top / cover;
+
+      position: absolute;
+      left: 8.4375vw;
+      top: 9.8958333333vw;
+
+      opacity: 0;
+      transition: opacity 0.13s linear;
+    }
+  }
+
+  &.world {
+    width: 44.4097222222vw;
+    height: 17.9166666667vw;
+    background: url(../../../../_images/menu/btn-world.png) no-repeat center top / cover;
+
+    left: 39.6875vw;
+    top: 36.09375vw;
+
+    &::after {
+      content: '';
+      display: block;
+
+      width: 17.7430555556vw;
+      height: 5.5902777778vw;
+      background: url(../../../../_images/menu/btn-world-text.png) no-repeat center top / cover;
+
+      position: absolute;
+      left: 1.1979166667vw;
+      top: 7.03125vw;
+
+      opacity: 0;
+      transition: opacity 0.13s linear;
+    }
+  }
+
+  &.hero {
+    width: 22.1875vw;
+    height: 18.3680555556vw;
+    background: url(../../../../_images/menu/btn-hero.png) no-repeat center top / cover;
+
+    left: 15.8333333333vw;
+    top: 53.0729166667vw;
+  }
+
+  &.salmon {
+    width: 21.4236111111vw;
+    height: 17.1875vw;
+    background: url(../../../../_images/menu/btn-salmon.png) no-repeat center top / cover;
+
+    left: 39.1145833333vw;
+    top: 54.1145833333vw;
+  }
+
+  &.fes {
+    width: 23.6458333333vw;
+    height: 16.4583333333vw;
+    background: url(../../../../_images/menu/btn-fes.png) no-repeat center top / cover;
+
+    left: 60.5729166667vw;
+    top: 55vw;
+  }
+
+  &.amiibo {
+    width: 21.6666666667vw;
+    height: 12.0486111111vw;
+    background: url(../../../../_images/menu/btn-amiibo.png) no-repeat center top / cover;
+
+    left: 15.9895833333vw;
+    top: 71.4583333333vw;
+  }
+
+  &.app {
+    width: 21.3194444444vw;
+    height: 11.4583333333vw;
+    background: url(../../../../_images/menu/btn-app.png) no-repeat center top / cover;
+
+    left: 39.21875vw;
+    top: 71.8229166667vw;
+  }
+
+  &.lab {
+    height: 10.9027777778vw;
+    width: 22.2569444444vw;
+    background: url(../../../../_images/menu/btn-lab.png) no-repeat center top / cover;
+
+    left: 62.1354166667vw;
+    top: 72.1354166667vw;
+  }
+}
