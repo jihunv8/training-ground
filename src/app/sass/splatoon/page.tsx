@@ -13,6 +13,7 @@ import MovieCarouselBackground from '@/app/sass/splatoon/_components/MovieCarous
 import BattleWithTwoForms from '@/app/sass/splatoon/_components/BattleWithTwoForms';
 import AreaBattle from '@/app/sass/splatoon/_components/AreaBattle';
 import BattleStyle from '@/app/sass/splatoon/_components/BattleStyle';
+import World from '@/app/sass/splatoon/_components/World';
 
 const NotoSansKR = Noto_Sans_KR({
   weight: ['400', '700', '900'],
@@ -39,6 +40,7 @@ export default function Page() {
       <BattleWithTwoForms />
       <AreaBattle />
       <BattleStyle />
+      <World />
     </div>
   );
 }

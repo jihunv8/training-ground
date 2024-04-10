@@ -1,0 +1,161 @@
+.wrapper {
+  margin-top: -6.0416666667vw;
+  height: 59.1145833333vw;
+
+  position: relative;
+
+  .bg {
+    width: 100%;
+    height: 100%;
+    background: url(../../_images/world/bg.png) no-repeat center top / cover;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .movie {
+    width: 46.1458333333vw;
+    height: 26.0416666667vw;
+    transform: rotate(-2.71deg);
+
+    position: absolute;
+    top: 19.375vw;
+    left: 43.0208333333vw;
+  }
+
+  .neon {
+    width: 20.46875vw;
+    height: 27.5520833333vw;
+    background: url(../../_images/world/neon-2.png) no-repeat right top / cover;
+
+    position: absolute;
+    right: -5.5208333333vw;
+    top: 2.6041666667vw;
+
+    .item {
+      width: 3.75vw;
+      height: 3.75vw;
+
+      position: absolute;
+
+      @keyframes flash {
+        /* prettier-ignore */
+        0%, 10%, 20%, 35%, 60%, 80%, 95%, 100% {
+          opacity: 0;
+        }
+
+        /* prettier-ignore */
+        8%, 18%, 34%, 55%, 75%, 79%, 95% {
+          opacity: 1;
+        }
+      }
+
+      @keyframes elect {
+        /* prettier-ignore */
+        0%, 30%, 35%, 40%, 43%, 100% {
+          opacity: 1;
+        }
+
+        /* prettier-ignore */
+        31%, 34%, 41%, 42% {
+          opacity: 0;
+        }
+      }
+
+      &.item1 {
+        background: url(../../_images/world/neon-2-on-1.png) no-repeat center / cover;
+
+        left: 8.9583333333vw;
+        top: 10.4166666667vw;
+
+        animation: flash 9s 10ms infinite linear;
+      }
+
+      &.item2 {
+        background: url(../../_images/world/neon-2-on-2.png) no-repeat center / cover;
+
+        left: 10.625vw;
+        top: 8.8541666667vw;
+        width: 4.0625vw;
+        height: 4.0625vw;
+
+        animation: elect 4s 50ms infinite linear;
+      }
+
+      &.item3 {
+        background: url(../../_images/world/neon-2-on-3.png) no-repeat center / cover;
+
+        left: 12.8125vw;
+        top: 7.5520833333vw;
+
+        animation: flash 6s 100ms infinite linear;
+      }
+    }
+  }
+
+  .title {
+    width: 48.2986111111vw;
+    height: 19.1319444444vw;
+    background: url(../../_images/world/title.png) no-repeat center top / cover;
+
+    position: absolute;
+    left: 10.2604166667vw;
+    top: 2.65625vw;
+
+    overflow: hidden;
+    text-indent: -9999%;
+
+    transition: transform 0.3s cubic-bezier(0.5, 1.5, 0.8, 1.1);
+    transform: scale(0, 0);
+
+    &.visible {
+      transform: scale(1, 1);
+    }
+  }
+
+  .subTitle {
+    width: 39.0972222222vw;
+    height: 12.6736111111vw;
+    background: url(../../_images/world/sub-title.png) no-repeat center top / cover;
+
+    position: absolute;
+    left: 51.3020833333vw;
+    top: 8.6458333333vw;
+
+    overflow: hidden;
+    text-indent: -9999%;
+
+    transition:
+      opacity 0.3s linear,
+      transform 0.3s linear;
+    opacity: 0;
+    transform: scale(1.3, 1.3);
+
+    &.visible {
+      opacity: 1;
+      transform: scale(1, 1);
+    }
+  }
+
+  .text {
+    position: absolute;
+    left: 18.3854166667vw;
+    top: 27.2916666667vw;
+    font-size: 1.25vw;
+    line-height: 1.66;
+    color: #fff;
+    font-weight: 900;
+
+    transition:
+      opacity 0.3s linear,
+      transform 0.3s linear;
+    opacity: 0;
+    transform: translate(0px, 15px);
+
+    &.visible {
+      opacity: 1;
+      transform: translate(0px, 0px);
+    }
+  }
+}
