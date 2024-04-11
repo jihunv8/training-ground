@@ -18,6 +18,7 @@ import Menu from '@/app/sass/splatoon/_components/Menu';
 import Update from '@/app/sass/splatoon/_components/Update';
 import Information from '@/app/sass/splatoon/_components/Information';
 import Product from '@/app/sass/splatoon/_components/Product';
+import Footer from '@/app/sass/splatoon/_components/Footer';
 
 const NotoSansKR = Noto_Sans_KR({
   weight: ['400', '700', '900'],
@@ -49,6 +50,7 @@ export default function Page() {
       <Update />
       <Information />
       <Product />
+      <Footer />
     </div>
   );
 }

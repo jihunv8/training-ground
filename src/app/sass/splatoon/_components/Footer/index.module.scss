@@ -1,0 +1,268 @@
+.wrapper {
+  margin-top: -3.125vw;
+  position: relative;
+
+  .menu {
+    height: 7.5520833333vw;
+    width: 100%;
+
+    position: relative;
+
+    .bgInk {
+      width: 20.5927083333vw;
+      height: 16.89375vw;
+
+      position: absolute;
+      right: 0;
+      bottom: 0;
+
+      .bgInkInner {
+        width: 18.2291666667vw;
+        height: 15.9375vw;
+        background: url(../../_images/footer/bg-ink.png) no-repeat center bottom / cover;
+
+        position: absolute;
+        right: 0.4166666667vw;
+        bottom: 0;
+      }
+    }
+
+    .bg {
+      width: 100%;
+      height: 100%;
+      background: url(../../_images/footer/bg.png) no-repeat center bottom / cover;
+
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+
+    .list {
+      display: flex;
+      padding-top: 0.2604166667vw;
+      padding-left: 7.9166666667vw;
+      height: 100%;
+
+      position: relative;
+
+      .item {
+        > a {
+          display: block;
+          width: 100%;
+
+          position: relative;
+
+          &:hover > img {
+            &:not(.onImage):not(.notHover) {
+              visibility: hidden;
+            }
+
+            &.onImage {
+              visibility: visible;
+            }
+          }
+
+          > img {
+            width: 100%;
+            height: auto;
+
+            &.onImage {
+              display: block;
+
+              position: absolute;
+              left: 50%;
+              top: 50%;
+
+              transform: translate(-50%, -50%);
+              visibility: hidden;
+            }
+          }
+        }
+
+        &.itemTop {
+          padding-top: 1.0416666667vw;
+          width: 9.375vw;
+
+          > a {
+            height: 5.3645833333vw;
+          }
+        }
+
+        &.itemBattle {
+          margin-left: 2.2916666667vw;
+          padding-top: 2.34375vw;
+          width: 5.9375vw;
+
+          > a {
+            padding: 1.0416666667vw;
+            height: 3.59375vw;
+
+            .onImage {
+              width: 8vw;
+              height: auto;
+
+              transform: translate(-50%, -60%);
+            }
+          }
+        }
+
+        &.itemCustomize {
+          padding-top: 2.1875vw;
+          width: 10vw;
+          height: auto;
+
+          > a {
+            padding: 1.0416666667vw;
+            height: 3.8020833333vw;
+
+            .onImage {
+              width: 9.21875vw;
+              height: 6.09375vw;
+            }
+          }
+        }
+
+        &.itemWorld {
+          padding-top: 2.34375vw;
+          width: 12vw;
+
+          > a {
+            padding: 1.0416666667vw;
+            height: 3.59375vw;
+
+            .onImage {
+              width: 9.8vw;
+              height: 6.8vw;
+              transform: translate(-50%, -62%);
+            }
+          }
+        }
+
+        &.itemHeromode {
+          padding-top: 2.34375vw;
+          width: 9.2708333333vw;
+
+          > a {
+            padding: 1.0416666667vw;
+            height: 3.4895833333vw;
+
+            .onImage {
+              width: 8.8541666667vw;
+              height: 6.8229166667vw;
+
+              transform: translate(-50%, -55%);
+            }
+          }
+        }
+
+        &.itemCoop {
+          padding-top: 1.9791666667vw;
+          width: 8.5416666667vw;
+
+          > a {
+            padding: 1.0416666667vw;
+            height: 4.2708333333vw;
+
+            .onImage {
+              left: 42%;
+              width: 9vw;
+              height: auto;
+              transform: translate(-50%, -55%);
+            }
+          }
+        }
+
+        &.itemFes {
+          padding-top: 2.3958333333vw;
+          width: 8vw;
+
+          > a {
+            padding: 1.0416666667vw;
+            height: 3.3333333333vw;
+
+            .onImage {
+              width: 9vw;
+              height: auto;
+            }
+          }
+        }
+
+        &.itemMovie {
+          padding-top: 2.2916666667vw;
+          width: 6.5625vw;
+
+          > a {
+            padding: 1.0416666667vw;
+            height: 3.59375vw;
+
+            .onImage {
+              margin-top: 0.3vw;
+              width: 8vw;
+              height: 6vw;
+            }
+          }
+        }
+      }
+    }
+
+    .toTopButton {
+      border: none;
+      width: 5.625vw;
+      height: 6.1979166667vw;
+      background: url(../../_images/footer/ika.png) no-repeat center / cover;
+
+      position: absolute;
+      right: 6.5104166667vw;
+      bottom: 2.9166666667vw;
+    }
+  }
+
+  .bottom {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 50px;
+    background: #fff;
+
+    .linkList {
+      display: flex;
+      gap: 20px;
+
+      position: absolute;
+      top: 18px;
+      left: 30px;
+
+      .link {
+        position: relative;
+        display: block;
+        text-align: left;
+        font-size: 14px;
+        line-height: 1;
+        letter-spacing: 0.2px;
+
+        &::after {
+          content: '';
+          width: 8px;
+          height: 100%;
+          background: url(../../_images/footer/icon-link.png) no-repeat left center / 100% auto;
+
+          position: absolute;
+          left: -11px;
+        }
+
+        > a {
+          text-decoration: none;
+          color: inherit;
+        }
+      }
+    }
+
+    > p {
+      font-size: 14px;
+      line-height: 1;
+      letter-spacing: 0.2px;
+    }
+  }
+}
