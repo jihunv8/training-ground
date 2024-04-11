@@ -21,7 +21,7 @@
       transform: rotate(-3.84deg);
 
       .tapeInner {
-        @include enterAnimations.bandLeftToRight(visible);
+        @include enterAnimations.bandLeftToRight('.visible');
       }
     }
 
@@ -30,7 +30,7 @@
       transform: rotate(-15.57deg);
 
       .tapeInner {
-        @include enterAnimations.bandRightToLeft(visible);
+        @include enterAnimations.bandRightToLeft('.visible');
       }
     }
 
@@ -39,7 +39,7 @@
       transform: rotate(4.24deg);
 
       .tapeInner {
-        @include enterAnimations.bandLeftToRight(visible);
+        @include enterAnimations.bandLeftToRight('.visible');
       }
     }
 
@@ -58,7 +58,7 @@
   .ink {
     position: absolute;
 
-    @include enterAnimations.ink(visible);
+    @include enterAnimations.ink('.visible');
 
     &.ink1 {
       width: 35.3125vw;
@@ -127,7 +127,7 @@
     overflow: hidden;
     text-indent: -9999%;
 
-    @include enterAnimations.fadeLeftToRight(visible);
+    @include enterAnimations.fadeLeftToRight('.visible');
   }
 
   .mainImage {
@@ -139,7 +139,7 @@
     left: 27.5vw;
     top: 10.9895833333vw;
 
-    @include enterAnimations.upFade(visible);
+    @include enterAnimations.upFade('.visible');
   }
 
   .text1 {
@@ -154,7 +154,7 @@
     overflow: hidden;
     text-indent: -9999%;
 
-    @include enterAnimations.downScaleFade(visible);
+    @include enterAnimations.downScaleFade('.visible');
   }
 
   .text2 {
@@ -169,6 +169,6 @@
     overflow: hidden;
     text-indent: -9999%;
 
-    @include enterAnimations.downScaleFade(visible);
+    @include enterAnimations.downScaleFade('.visible');
   }
 }
