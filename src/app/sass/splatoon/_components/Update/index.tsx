@@ -19,6 +19,7 @@ export default function Update() {
 
       {inkStains.map((ink, i) => (
         <div
+          key={i}
           ref={ink.ref}
           data-visible-id={ink.id}
           className={namer('ink', `ink${i + 1}`, ink.isVisible && 'visible')}
