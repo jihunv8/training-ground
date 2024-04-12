@@ -1,27 +1,73 @@
+@use '../../_styles/screen';
+@use '../../_styles/enterAnimations';
+
+@mixin aniKv($selector) {
+  transition:
+    transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    opacity 0.1s linear;
+
+  opacity: 0;
+  transform: rotate(-6deg) scale(1.5);
+
+  &#{$selector} {
+    opacity: 1;
+    transform: rotate(0) scale(1.05);
+    @content;
+  }
+}
+
+@mixin aniTitle($selector) {
+  transition:
+    visibility 0s 0.58s linear,
+    transform 0.25s 0.58s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  visibility: hidden;
+  transform: scale(1.3);
+
+  &#{$selector} {
+    visibility: visible;
+    transform: scale(1);
+    @content;
+  }
+}
+
+@mixin aniDate($selector) {
+  visibility: hidden;
+  transform: rotate(-3.88deg) translateX(100%);
+
+  transition:
+    visibility 0s linear 0.8s,
+    transform 0.25s cubic-bezier(0.175, 0.885, 0.25, 1.15) 0.8s;
+
+  &#{$selector} {
+    visibility: visible;
+    transform: rotate(-3.88deg) translateX(0%);
+    @content;
+  }
+}
+
 .kvWrapper {
   position: relative;
   overflow: hidden;
   width: 100%;
   height: calc(100vh - 45px - 40px);
-  mask-image: url(../../_images/kv-mask.svg);
+  mask-image: url(../../_images/pc/poster/kv-mask.svg);
   mask-position: center bottom;
   mask-repeat: no-repeat;
   mask-size: cover;
 
+  @include screen.mobile {
+    mask-image: none;
+  }
+
   .kv {
     height: 100%;
-    background: url(../../_images/kv.jpg) no-repeat center / cover;
+    background: url(../../_images/pc/poster/kv.jpg) no-repeat center / cover;
 
-    opacity: 0;
-    transform: rotate(-6deg) scale(1.5);
+    @include aniKv('.visible');
 
-    transition:
-      transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-      opacity 0.1s linear;
-
-    .isShow & {
-      opacity: 1;
-      transform: rotate(0) scale(1.05);
+    @media screen and (max-width: 759px) {
+      background-image: url(../../_images/m/poster/kv.jpg);
     }
   }
 
@@ -32,50 +78,48 @@
     height: 100px;
     top: 0;
     right: 0;
+
+    @include screen.mobile {
+      right: 6px;
+      top: 6px;
+      width: 50px;
+      height: 50px;
+    }
   }
 }
 
 .head {
   position: relative;
 
-  @function calcSize($number) {
-    $RATIO: 28.8;
-    $UNIT: 1vw;
-
-    @return $number / $RATIO * $UNIT;
-  }
-
-  @function calcMaxSize($number) {
-    $RATIO: 1.5;
-    $UNIT: 1px;
-
-    @return $number / $RATIO * $UNIT;
-  }
-
   .title {
     $image-width: 1188;
     $image-height: 683;
 
-    width: calcSize($image-width);
-    height: calcSize($image-height);
-    max-width: calcMaxSize($image-width);
-    max-height: calcMaxSize($image-height);
-    background: url(../../_images/title.png) no-repeat center / contain;
+    width: 41.25vw;
+    height: 23.7152777778vw;
+    max-width: 792px;
+    max-height: 455.3333333333px;
+    background: url(../../_images/pc/poster/logo.png) no-repeat center / contain;
 
     position: absolute;
     left: 1.3541666667vw;
     bottom: -3.3333333333vw;
 
-    visibility: hidden;
-    transform: scale(1.3);
+    @include aniTitle('.visible');
 
-    transition:
-      visibility 0s linear 0.58s,
-      transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.58s;
+    @include screen.tablet {
+      left: 1.3541666667vw;
+      bottom: 10.625vw;
+      width: 61.875vw;
+      height: 35.5729166667vw;
+    }
 
-    .isShow & {
-      visibility: visible;
-      transform: scale(1);
+    @include screen.mobile {
+      background-image: url(../../_images/m/poster/logo.png);
+      left: 3.9473684211vw;
+      bottom: 11.5789473684vw;
+      width: 92.3684210526vw;
+      height: 53.0263157895vw;
     }
   }
 
@@ -83,26 +127,31 @@
     $image-width: 1068;
     $image-height: 296;
 
-    width: calcSize($image-width);
-    height: calcSize($image-height);
-    max-width: calcMaxSize($image-width);
-    max-height: calcMaxSize($image-height);
-    background: url(../../_images/release-date.png) no-repeat center / contain;
+    width: 37.0833333333vw;
+    height: 10.2777777778vw;
+    max-width: 712px;
+    max-height: 197.3333333333px;
+    background: url(../../_images/pc/poster/date.png) no-repeat center / contain;
 
     position: absolute;
     right: -0.5208333333vw;
     bottom: 0.8854166667vw;
 
-    visibility: hidden;
-    transform: rotate(-3.88deg) translateX(100%);
+    @include aniDate('.visible');
 
-    transition:
-      visibility 0s linear 0.8s,
-      transform 0.25s cubic-bezier(0.175, 0.885, 0.25, 1.15) 0.8s;
+    @include screen.tablet {
+      right: -0.5208333333vw;
+      bottom: 0.8854166667vw;
+      width: 55.625vw;
+      height: 15.4166666667vw;
+    }
 
-    .isShow & {
-      visibility: visible;
-      transform: rotate(-3.88deg) translateX(0%);
+    @include screen.mobile {
+      background-image: url(../../_images/m/poster/date.png);
+      right: -0.9210526316vw;
+      bottom: -7.2368421053vw;
+      width: 83.1578947368vw;
+      height: 23.4210526316vw;
     }
   }
 }

@@ -1,8 +1,11 @@
 'use client';
+import { createClassNamer } from '@/app/sass/splatoon3/_utils/class-namer/classNamer';
 import style from './index.module.scss';
 import Link from 'next/link';
 
 import { useState, useEffect } from 'react';
+
+const namer = createClassNamer(style);
 
 export default function Poster() {
   const [isMount, setIsMount] = useState(false);
@@ -12,17 +15,17 @@ export default function Poster() {
   }, []);
 
   return (
-    <section className={`${style.wrapper} ${isMount ? style.isShow : ''}`}>
-      <div className={style.kvWrapper}>
-        <div className={style.kv}></div>
-        <Link href="/sass/splatoon3/a" className={style.switchLogo}></Link>
+    <section className={namer('wrapper', isMount && 'isShow')}>
+      <div className={namer('kvWrapper')}>
+        <div className={namer('kv', isMount && 'visible')}></div>
+        <Link className={namer('switchLogo')} href="/sass/splatoon3/a"></Link>
       </div>
-      <div className={style.head}>
+      <div className={namer('head')}>
         <h1>
-          <div className={style.title}></div>
+          <div className={namer('title', isMount && 'visible')}></div>
         </h1>
         <div>
-          <div className={style.releaseDate}></div>
+          <div className={namer('releaseDate', isMount && 'visible')}></div>
         </div>
       </div>
     </section>
