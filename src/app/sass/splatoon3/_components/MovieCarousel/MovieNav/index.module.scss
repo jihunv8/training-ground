@@ -1,9 +1,21 @@
+@use '../../../_styles/screen';
+
 .wrapper {
   margin-top: 0.520833333333vw;
   display: flex;
+  position: relative;
+
+  @include screen.mobile {
+    width: 100%;
+  }
+
   .indexBtnContainer {
     display: flex;
     align-items: center;
+
+    @include screen.mobile {
+      display: none;
+    }
 
     .indexBtn {
       margin: 0 0.5208333333vw;
@@ -32,16 +44,32 @@
     overflow: hidden;
     text-indent: 9999%;
 
+    @include screen.mobile {
+      width: 9.8684210526vw;
+      height: 10.3947368421vw;
+      position: absolute;
+    }
+
     &.prev {
       margin-right: 2.34375vw;
       animation: movie-nav-arrowBtn-prev 1.25s infinite ease-out;
       background: url(../../../_images/movie-nav/btn_prev.png) no-repeat center / cover;
+
+      @include screen.mobile {
+        left: 6.5789473684vw;
+        bottom: 23vw;
+      }
     }
 
     &.next {
       margin-left: 2.34375vw;
       animation: movie-nav-arrowBtn-next 1.25s infinite ease-out;
       background: url(../../../_images/movie-nav/btn_next.png) no-repeat center / cover;
+
+      @include screen.mobile {
+        right: 6.5789473684vw;
+        bottom: 23vw;
+      }
     }
 
     @keyframes movie-nav-arrowBtn-prev {

@@ -1,5 +1,8 @@
 import { MouseEventHandler } from 'react';
 import style from './index.module.scss';
+import { createClassNamer } from '@/app/sass/splatoon3/_utils/class-namer/classNamer';
+
+const namer = createClassNamer(style);
 
 type MovieNavProps = {
   currentIndex: number;
@@ -15,19 +18,19 @@ export default function MovieNav({ currentIndex, length, onMove, onPrev, onNext 
     const isCurrent = i === currentIndex;
 
     return (
-      <button key={i} className={`${style.indexBtn} ${isCurrent && style.current}`} onClick={() => onMove(i)}>
+      <button key={i} className={namer('indexBtn', isCurrent && 'current')} onClick={() => onMove(i)}>
         {i}
       </button>
     );
   });
 
   return (
-    <div className={style.wrapper}>
-      <button className={`${style.arrowBtn} ${style.prev}`} onClick={onPrev}>
+    <div className={namer('wrapper')}>
+      <button className={namer('arrowBtn prev')} onClick={onPrev}>
         prev
       </button>
-      <div className={style.indexBtnContainer}>{indexButtons}</div>
-      <button className={`${style.arrowBtn} ${style.next}`} onClick={onNext}>
+      <div className={namer('indexBtnContainer')}>{indexButtons}</div>
+      <button className={namer('arrowBtn next')} onClick={onNext}>
         next
       </button>
     </div>

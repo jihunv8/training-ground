@@ -1,14 +1,17 @@
 import style from './index.module.scss';
-import Image from 'next/image';
+import { createClassNamer } from '@/app/sass/splatoon3/_utils/class-namer/classNamer';
 
+import Image from 'next/image';
 import movieTitleImage from '@sass/splatoon3/_images/movie_title.png';
+
+const namer = createClassNamer(style);
 
 export default function MovieCarouselBackground() {
   return (
-    <section className={style.wrapper}>
-      <div className={style.bg}>
+    <section className={namer('wrapper')}>
+      <div className={namer('bg')}>
         <video
-          className={style.bg_video}
+          className={namer('bgVideo')}
           src="https://www.nintendo.co.kr/switch/av5ja/assets/images/index/movie/movie_pc.mp4"
           preload="none"
           autoPlay
@@ -16,7 +19,7 @@ export default function MovieCarouselBackground() {
           loop
         ></video>
       </div>
-      <div className={style.title}>
+      <div className={namer('title')}>
         <Image src={movieTitleImage} alt="movie" />
       </div>
     </section>

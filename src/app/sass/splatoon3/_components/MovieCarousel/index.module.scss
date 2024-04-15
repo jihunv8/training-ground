@@ -1,6 +1,13 @@
+@use '../../_styles/screen';
+
 .wrapper {
   position: relative;
   margin-top: -5.8333333333vw;
+
+  @include screen.mobile {
+    margin-top: -13.1578947368vw;
+  }
+
   .carousel {
     width: 100%;
     overflow: hidden;
@@ -10,6 +17,12 @@
     z-index: 2;
 
     --itemWidth: calc(100vw / 4);
+
+    @include screen.mobile {
+      top: 30.3947368421vw;
+
+      --itemwidth: calc(100vw / 2);
+    }
 
     > ul {
       --half: calc(100vw / 2 - (var(--itemWidth) / 2));

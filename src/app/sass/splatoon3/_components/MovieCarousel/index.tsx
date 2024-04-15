@@ -1,19 +1,24 @@
 'use client';
 
 import style from './index.module.scss';
-import { getMovies } from '@/app/sass/splatoon3/_components/MovieCarousel/moviesData';
 
 import { useState } from 'react';
+import { useInnerWidth } from '@/app/sass/splatoon3/_hooks/useInnerWidth';
+import { createClassNamer } from '@/app/sass/splatoon3/_utils/class-namer/classNamer';
+
 import MovieNav from '@/app/sass/splatoon3/_components/MovieCarousel/MovieNav';
 import MovieItem from '@/app/sass/splatoon3/_components/MovieCarousel/MovieItem';
-import { useInnerWidth } from '@/app/sass/splatoon3/_hooks/useInnerWidth';
+
+import { getMovies } from '@/app/sass/splatoon3/_components/MovieCarousel/tempDB';
+
+const namer = createClassNamer(style);
 
 export default function MovieCarousel() {
   const movies = getMovies();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const innerWidth = useInnerWidth();
-  const itemWidth = innerWidth / 4;
+  const itemWidth = innerWidth >= 760 ? innerWidth / 4 : innerWidth / 1.3;
   const translateX = innerWidth / 2 - itemWidth / 2 - itemWidth * currentIndex;
 
   const dynamicStyle = {
@@ -36,8 +41,8 @@ export default function MovieCarousel() {
   };
 
   return (
-    <section className={style.wrapper}>
-      <div className={style.carousel}>
+    <section className={namer('wrapper')}>
+      <div className={namer('carousel')}>
         <ul style={dynamicStyle}>
           {movies.map(({ id, thumbnail, href, title }, i) => {
             return (
@@ -52,7 +57,7 @@ export default function MovieCarousel() {
             );
           })}
         </ul>
-        <section className={style.movieBottom}>
+        <section className={namer('movieBottom')}>
           <MovieNav
             currentIndex={currentIndex}
             length={movies.length}
