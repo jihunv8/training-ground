@@ -1,6 +1,7 @@
 import style from './index.module.scss';
 import { createClassNamer } from '@/app/sass/splatoon3/_utils/class-namer/classNamer';
 import { useVisible } from '@/app/sass/splatoon3/_hooks/useVisible';
+import { useInnerWidth } from '@/app/sass/splatoon3/_hooks/useInnerWidth';
 
 const namer = createClassNamer(style);
 
@@ -13,16 +14,17 @@ export default function BattleWithTwoForms() {
     threshold: 1,
   });
 
+  const innerWidth = useInnerWidth();
+  const isMobile = innerWidth < 760;
+
+  const bgMovieOnPC = '/assets/sass/splatoon3/videos/pc/battle-with-two-forms/two-forms.mp4';
+  const bgMovieOnMobile = '/assets/sass/splatoon3/videos/m/battle-with-two-forms/two-forms.mp4';
+  const bgMovieSrc = isMobile ? bgMovieOnMobile : bgMovieOnPC;
+
   return (
     <section className={namer('wrapper')}>
       <div className={namer('movieBg')}>
-        <video
-          src="/assets/sass/splatoon3/videos/battle/battle-with-two-forms.mp4"
-          preload="none"
-          autoPlay
-          muted
-          loop
-        ></video>
+        <video src={bgMovieSrc} preload="none" autoPlay muted loop></video>
       </div>
       <div className={namer('bg')}></div>
 

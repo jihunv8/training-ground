@@ -1,16 +1,24 @@
 import { useVisible } from '@/app/sass/splatoon3/_hooks/useVisible';
 import style from './index.module.scss';
 import { createClassNamer } from '@sass/splatoon3/_utils/class-namer/classNamer';
+import { useInnerWidth } from '@/app/sass/splatoon3/_hooks/useInnerWidth';
 
 const namer = createClassNamer(style);
 
 export default function World() {
+  const innerWidth = useInnerWidth();
+  const isMobile = innerWidth < 760;
+
+  const movieOnPC = '/assets/sass/splatoon3/videos/pc/world/world.mp4';
+  const movieOnMobile = '/assets/sass/splatoon3/videos/m/world/world.mp4';
+  const movieSrc = isMobile ? movieOnMobile : movieOnPC;
+
   const [title, subTitle, text] = useVisible(3, { threshold: 0.5 });
 
   return (
     <section className={namer('wrapper')}>
       <div className={namer('movie')}>
-        <video src="/assets/sass/splatoon3/videos/world/world-pc.mp4" preload="none" autoPlay muted loop></video>
+        <video src={movieSrc} preload="none" autoPlay muted loop></video>
       </div>
       <div className={namer('bg')}></div>
       <div className={namer('neon')}>

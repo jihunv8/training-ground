@@ -1,5 +1,6 @@
 'use client';
 
+import { useInnerWidth } from '@/app/sass/splatoon3/_hooks/useInnerWidth';
 import style from './index.module.scss';
 
 import { useVisible } from '@/app/sass/splatoon3/_hooks/useVisible';
@@ -15,6 +16,13 @@ export default function AreaBattle() {
   const numOfInkStains = 6;
 
   const inkStainsVisible = useVisible(numOfInkStains, { threshold: 0.5 });
+
+  const innerWidth = useInnerWidth();
+  const isMobile = innerWidth < 760;
+
+  const movieOnPC = '/assets/sass/splatoon3/videos/pc/area-battle/area-battle.mp4';
+  const movieOnMobile = '/assets/sass/splatoon3/videos/m/area-battle/area-battle.mp4';
+  const movieSrc = isMobile ? movieOnMobile : movieOnPC;
 
   return (
     <section className={namer('wrapper')}>
@@ -48,13 +56,7 @@ export default function AreaBattle() {
       <div ref={movieVisible.ref} data-visible-id={movieVisible.id} className={namer('movie')}>
         <div className={namer('movieInner', movieVisible.isVisible && 'visible')}>
           <div className={namer('frame')}></div>
-          <video
-            src="/assets/sass/splatoon3/videos/battle/battle-area-battle.mp4"
-            preload="none"
-            autoPlay
-            muted
-            loop
-          ></video>
+          <video src={movieSrc} preload="none" autoPlay muted loop></video>
         </div>
       </div>
       <div
