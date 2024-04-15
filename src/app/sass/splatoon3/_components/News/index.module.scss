@@ -1,4 +1,5 @@
 @use '../../_styles/enterAnimations';
+@use '../../_styles/screen';
 
 @function calcPxToVW($valueOfPX) {
   @return calc($valueOfPX / 1920 * 100vw);
@@ -7,11 +8,20 @@
 .wrapper {
   margin-top: -13.75vw;
   padding-top: 13.75vw;
-  background: url(../../_images/bg_news.png) repeat-y center top;
+  padding-bottom: 9.1145833333vw;
+  background: url(../../_images/pc/news/bg.png) repeat-y center top;
 
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @include screen.mobile {
+    margin-top: -19.3421052632vw;
+    padding-top: 34.2105263158vw;
+    padding-bottom: 20.2631578947vw;
+
+    background-image: url(../../_images/m/news/bg.png);
+  }
 
   .bannersWrapper {
     margin-top: 2.0833333333vw;
@@ -19,7 +29,9 @@
     flex-direction: column;
     align-items: center;
 
-    padding-bottom: 9.1145833333vw;
+    @include screen.mobile {
+      margin-top: 2.6315789474vw;
+    }
 
     .banner {
       display: block;
@@ -28,11 +40,9 @@
 
       overflow: hidden;
 
-      > img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        object-position: center;
+      @include screen.mobile {
+        width: 89.4736842105vw;
+        height: 23.6842105263vw;
       }
 
       @include enterAnimations.upScaleFadeOutBack('.visible') {
@@ -41,13 +51,26 @@
           transform: scale(1.05);
         }
       }
+
+      > img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+      }
     }
 
     .bannersHead {
       .forBeginner {
         width: 67.8472222222vw;
         height: 10.9375vw;
-        background: url(../../_images/banners/banner_for_beginner.png) no-repeat center top / cover;
+        background: url(../../_images/pc/news/banners/banner-for-beginner.png) no-repeat center top / cover;
+
+        @include screen.mobile {
+          width: 94.8684210526vw;
+          height: 39.978426758vw;
+          background-image: url(../../_images/m/news/banners/banner-for-beginner.png);
+        }
       }
     }
 
@@ -56,6 +79,11 @@
       display: flex;
       flex-direction: column;
       gap: 1.4583333333vw;
+
+      @include screen.mobile {
+        margin-top: 5.2631578947vw;
+        gap: 5.2631578947vw;
+      }
     }
 
     .bannersFoot {
@@ -63,12 +91,23 @@
       margin-top: 1.875vw;
       display: flex;
       justify-content: center;
+
+      @include screen.mobile {
+        margin-top: 5.2631578947vw;
+      }
+
       .bigBanner {
         display: block;
         width: 27.8645833333vw;
         height: 15.6770833333vw;
         border-radius: 10px;
-        background: url(../../_images/banners/big_banner1.png) no-repeat center top / cover;
+        background: url(../../_images/pc/news/banners/big-banner1.png) no-repeat center top / cover;
+
+        @include screen.mobile {
+          width: 62.5vw;
+          height: 35vw;
+          padding: 0 1.3157894737vw;
+        }
       }
     }
   }

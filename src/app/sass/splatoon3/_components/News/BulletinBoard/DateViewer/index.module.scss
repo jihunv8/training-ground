@@ -1,3 +1,6 @@
+@use '../../../../_styles/screen';
+@use 'sass:map';
+
 .wrapper {
   .number {
     display: inline-block;
@@ -9,55 +12,68 @@
 
     background: no-repeat center / cover;
 
-    $x-small: 0.2604166667vw; /* 5px */
-    $small: 0.5208333333vw; /* 10px */
-    $middle: 0.78125vw; /* 15px */
-    $large: 0.8333333333vw;
-    $x-large: 0.8854166667vw; /* 17px */
+    @include screen.mobile {
+      height: 2.5vw;
+      margin-left: 0.1315789474vw;
+    }
+
+    @mixin number($num, $size) {
+      $pc: (
+        'x-small': 0.2604166667vw,
+        'small': 0.5208333333vw,
+        'medium': 0.78125vw,
+        'large': 0.8333333333vw,
+        'x-large': 0.8854166667vw,
+      );
+
+      $m: (
+        'x-small': 0.6578947368vw,
+        'small': 1.3157894737vw,
+        'medium': 1.9736842105vw,
+        'large': 2.1052631579vw,
+        'x-large': 2.2368421053vw,
+      );
+
+      width: map.get($pc, $size);
+      background-image: url(../../../../_images/numbers/#{$num}.png);
+
+      @include screen.mobile {
+        width: map.get($m, $size);
+      }
+    }
 
     &.num0 {
-      width: $large;
-      background-image: url(../../../../_images/numbers/0.png);
+      @include number(0, 'large');
     }
     &.num1 {
-      width: $small;
-      background-image: url(../../../../_images/numbers/1.png);
+      @include number(1, 'small');
     }
     &.num2 {
-      width: $middle;
-      background-image: url(../../../../_images/numbers/2.png);
+      @include number(2, 'medium');
     }
     &.num3 {
-      width: $middle;
-      background-image: url(../../../../_images/numbers/3.png);
+      @include number(3, 'medium');
     }
     &.num4 {
-      width: $middle;
-      background-image: url(../../../../_images/numbers/4.png);
+      @include number(4, 'medium');
     }
     &.num5 {
-      width: $middle;
-      background-image: url(../../../../_images/numbers/5.png);
+      @include number(5, 'medium');
     }
     &.num6 {
-      width: $x-large;
-      background-image: url(../../../../_images/numbers/6.png);
+      @include number(6, 'x-large');
     }
     &.num7 {
-      width: $middle;
-      background-image: url(../../../../_images/numbers/7.png);
+      @include number(7, 'medium');
     }
     &.num8 {
-      width: $middle;
-      background-image: url(../../../../_images/numbers/8.png);
+      @include number(8, 'medium');
     }
     &.num9 {
-      width: $x-large;
-      background-image: url(../../../../_images/numbers/9.png);
+      @include number(9, 'x-large');
     }
     &.dot {
-      width: $x-small;
-      background-image: url(../../../../_images/numbers/dot.png);
+      @include number('dot', 'x-small');
     }
   }
 }

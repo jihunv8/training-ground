@@ -1,16 +1,24 @@
-import additionImage from '@sass/splatoon3/_images/banners/banner_addition.png';
-import interviewImage from '@sass/splatoon3/_images/banners/banner_interview.png';
+import additionBannerPC from '@sass/splatoon3/_images/pc/news/banners/banner-addition.png';
+import additionBannerM from '@sass/splatoon3/_images/m/news/banners/banner-addition.png';
+import interviewBannerPC from '@sass/splatoon3/_images/pc/news/banners/banner-interview.png';
+import interviewBannerM from '@sass/splatoon3/_images/m/news/banners/banner-interview.png';
 
 export const getBanners = () => [
   {
     id: 1,
-    src: additionImage,
+    src: {
+      pc: additionBannerPC,
+      m: additionBannerM,
+    },
     alt: 'addition',
     href: '/temp',
   },
   {
     id: 2,
-    src: interviewImage,
+    src: {
+      pc: interviewBannerPC,
+      m: interviewBannerM,
+    },
     alt: 'interview',
     href: '/temp',
   },

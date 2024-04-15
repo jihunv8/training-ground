@@ -7,6 +7,7 @@ import { useVisible } from '@/app/sass/splatoon3/_hooks/useVisible';
 import { createClassNamer } from '@/app/sass/splatoon3/_utils/class-namer/classNamer';
 
 import { getBanners } from '@/app/sass/splatoon3/_components/News/tempDB';
+import { getImageProps } from 'next/image';
 
 import BulletinBoard from '@sass/splatoon3/_components/News/BulletinBoard';
 
@@ -35,10 +36,19 @@ export default function News() {
           {banners.map(({ id, href, src, alt }, i) => {
             const { ref, id: visibleId, isVisible } = bannersVisibleTable[i];
 
+            const common = { alt };
+
+            const {
+              props: { srcSet: pcSrcSet },
+            } = getImageProps({ ...common, src: src.pc });
+
             return (
               <li key={id} data-id={id} ref={ref} data-visible-id={visibleId}>
                 <Link href={href} className={namer('banner', isVisible && 'visible')}>
-                  <Image src={src} alt={alt} />
+                  <picture>
+                    <source media="(min-width: 760px)" srcSet={pcSrcSet}></source>
+                    <Image src={src.m} alt={alt} fill />
+                  </picture>
                 </Link>
               </li>
             );
