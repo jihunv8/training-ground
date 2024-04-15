@@ -39,7 +39,7 @@
       top: 0;
     }
 
-    .bgVideo {
+    .bgMovie {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -49,11 +49,15 @@
   .title {
     width: 35.1041666667vw;
     height: 8.9236111111vw;
+    background: url(../../_images/pc/movie/title.png) no-repeat center / cover;
 
     position: absolute;
     z-index: 1;
     left: 12.03125vw;
     top: 2.34375vw;
+
+    overflow: hidden;
+    text-indent: -9999%;
 
     > img {
       width: 100%;

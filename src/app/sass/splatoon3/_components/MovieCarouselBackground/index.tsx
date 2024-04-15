@@ -1,27 +1,23 @@
+import { useInnerWidth } from '@/app/sass/splatoon3/_hooks/useInnerWidth';
 import style from './index.module.scss';
 import { createClassNamer } from '@/app/sass/splatoon3/_utils/class-namer/classNamer';
-
-import Image from 'next/image';
-import movieTitleImage from '@sass/splatoon3/_images/movie_title.png';
 
 const namer = createClassNamer(style);
 
 export default function MovieCarouselBackground() {
+  const innerWidth = useInnerWidth();
+  const isMobile = innerWidth < 760;
+
+  const bgMovieOnPC = '/assets/sass/splatoon3/videos/pc/movie/bg-movie.mp4';
+  const bgMovieOnMobile = '/assets/sass/splatoon3/videos/m/movie/bg-movie.mp4';
+  const bgMovieSrc = isMobile ? bgMovieOnMobile : bgMovieOnPC;
+
   return (
     <section className={namer('wrapper')}>
       <div className={namer('bg')}>
-        <video
-          className={namer('bgVideo')}
-          src="https://www.nintendo.co.kr/switch/av5ja/assets/images/index/movie/movie_pc.mp4"
-          preload="none"
-          autoPlay
-          muted
-          loop
-        ></video>
+        <video className={namer('bgMovie')} src={bgMovieSrc} preload="none" autoPlay muted loop></video>
       </div>
-      <div className={namer('title')}>
-        <Image src={movieTitleImage} alt="movie" />
-      </div>
+      <div className={namer('title')}>movie</div>
     </section>
   );
 }
