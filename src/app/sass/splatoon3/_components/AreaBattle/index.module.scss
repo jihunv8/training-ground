@@ -1,37 +1,47 @@
+@use '../../_styles/screen';
+@use '../../_styles/enterAnimations';
+
 .wrapper {
   margin-top: -8.0729166667vw;
   height: 67.7604166667vw;
-  background: url(../../_images/bg_battle_2.png) no-repeat center top / cover;
+  background: url(../../_images/pc/area-battle/bg.png) no-repeat center top / cover;
 
   position: relative;
   z-index: 1;
 
-  .twoFormsImg {
+  @include screen.mobile {
+    margin-top: -20.9210526316vw;
+    padding-top: 38.1578947368vw;
+    height: 189.4736842105vw;
+    background-image: url(../../_images/m/area-battle/bg.png);
+  }
+
+  .character1 {
     width: 60.2083333333vw;
     height: 23.9583333333vw;
-    background: url(../../_images/battle/two-forms.png) no-repeat center / cover;
+    background: url(../../_images/pc/area-battle/character-1.png) no-repeat center / cover;
 
     position: absolute;
     z-index: 1;
     left: 5.46875vw;
     top: -16.5625vw;
 
-    transition:
-      opacity 0.3s,
-      transform 0.3s;
-    opacity: 0;
-    transform: translate(0px, 15px);
+    @include enterAnimations.upFade('.visible');
 
-    &.visible {
-      opacity: 1;
-      transform: translate(0px, 0px);
+    @include screen.mobile {
+      width: 99.7368421053vw;
+      height: 46.4473684211vw;
+      background-image: url(../../_images/m/area-battle/character-1.png);
+
+      left: 0;
+      top: -48.9473684211vw;
     }
   }
 
   .title {
     width: 60.1388888889vw;
     height: 19.0625vw;
-    background: url(../../_images/battle/title-area-battle.png) no-repeat center / cover;
+    background: url(../../_images/pc/area-battle/title.png) no-repeat center / cover;
 
     position: absolute;
     z-index: 2;
@@ -41,16 +51,16 @@
     overflow: hidden;
     text-indent: -9999%;
 
-    transition:
-      opacity 0.3s,
-      transform 0.3s;
-    opacity: 0;
-    opacity: 0;
-    transform: scale(1.3, 1.3);
+    @include enterAnimations.downScaleFade('.visible');
 
-    &.visible {
-      opacity: 1;
-      transform: translate(0px, 0px);
+    @include screen.mobile {
+      width: 100vw;
+      height: 55vw;
+
+      left: 0;
+      top: -10.3947368421vw;
+
+      background-image: url(../../_images/m/area-battle/title.png);
     }
   }
 
@@ -58,7 +68,7 @@
     padding: 5.2083333333vw 0 0 4.6875vw;
     width: 42.65625vw;
     height: 17.2916666667vw;
-    background: url(../../_images/battle/bg_text.png) no-repeat center top / cover;
+    background: url(../../_images/pc/area-battle/bg-text.png) no-repeat center top / cover;
 
     position: absolute;
     z-index: 1;
@@ -70,19 +80,42 @@
     font-weight: 900;
     line-height: 1.66;
 
-    transition:
-      opacity 0.3s,
-      transform 0.3s;
-    opacity: 0;
-    transform: translate(0px, 15px);
+    @include enterAnimations.upFade('.visible');
 
-    &.visible {
-      opacity: 1;
-      transform: translate(0px, 0px);
+    @include screen.mobile {
+      margin-left: 5.2631578947vw;
+      padding: 5.7894736842vw 0 0 6.8421052632vw;
+      width: 90.7894736842vw;
+      height: 36.1842105263vw;
+
+      position: relative;
+      top: 0;
+      left: 0;
+
+      font-size: 3.9473684211vw;
+      line-height: 1.53;
+
+      background-image: url(../../_images/m/area-battle/bg-text.png);
+      background-size: 100% auto;
+    }
+
+    > br {
+      &.onPC {
+        @include screen.mobile {
+          display: none;
+        }
+      }
+
+      &.onMobile {
+        display: none;
+        @include screen.mobile {
+          display: inline;
+        }
+      }
     }
   }
 
-  .areaBattleMovie {
+  .movie {
     width: 51.3541666667vw;
     height: 29.5833333333vw;
 
@@ -91,36 +124,73 @@
     left: 24.21875vw;
     top: 26.0416666667vw;
 
-    transition:
-      opacity 0.3s,
-      transform 0.3s;
-    opacity: 0;
-    transform: translate(0px, 15px) rotate(3.33019deg);
+    transform: rotate(3.33019deg);
 
-    &.visible {
-      opacity: 1;
-      transform: rotate(3.33019deg);
-    }
+    @include screen.mobile {
+      margin-top: 2.7631578947vw;
+      margin-left: 6.0526315789vw;
+      width: 88.2894736842vw;
+      height: 50.9210526316vw;
 
-    .frame {
-      width: 100%;
-      height: auto;
-
-      position: absolute;
-      z-index: 1;
-      left: 0;
+      position: relative;
+      z-index: 2;
       top: 0;
+      left: 0;
+
+      transform: rotate(7.99deg);
     }
 
-    .movie {
-      width: 50.5208333333vw;
-      height: 28.6458333333vw;
-      background-color: #fff;
+    .movieInner {
+      width: 100%;
+      height: 100%;
+      @include enterAnimations.upFade('.visible');
 
-      position: absolute;
-      z-index: 0;
-      left: 0.4166666667vw;
-      top: 0.4166666667vw;
+      .frame {
+        width: 100%;
+        height: 100%;
+        background: url(../../_images/pc/area-battle/frame.png) no-repeat center / cover;
+
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        top: 0;
+      }
+
+      > video {
+        width: 50.5208333333vw;
+        height: 28.6458333333vw;
+        background-color: #fff;
+
+        position: absolute;
+        z-index: 0;
+        left: 0.4166666667vw;
+        top: 0.4166666667vw;
+
+        @include screen.mobile {
+          width: 86.8421052632vw;
+          height: 50vw;
+          left: 0.6578947368vw;
+          top: 0.5263157895vw;
+        }
+      }
+    }
+  }
+
+  .character2 {
+    width: 66.0526315789vw;
+    height: 77.1052631579vw;
+    background: url(../../_images/m/area-battle/character-2.png) no-repeat center / cover;
+
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    bottom: 5.1315789474vw;
+
+    @include enterAnimations.fadeLeftToRight('.visible');
+
+    display: none;
+    @include screen.mobile {
+      display: block;
     }
   }
 
@@ -131,68 +201,112 @@
     background-size: cover;
     background-repeat: no-repeat;
 
-    transition:
-      opacity 0.3s cubic-bezier(0.15, 1.06, 0.8, 1.2),
-      transform 0.3s cubic-bezier(0.15, 1.06, 0.8, 1.2);
+    @include enterAnimations.ink('.visible');
 
-    opacity: 0;
-    transform: scale(1.15, 1.15);
-
-    &.visible {
-      opacity: 1;
-      transform: translate(0px, 0px);
+    @mixin ink($num) {
+      background-image: url(../../_images/pc/area-battle/ink-stains/ink-#{$num}.png);
     }
 
-    &.stain1 {
+    @mixin inkOnMobile($num) {
+      @include screen.mobile {
+        background-image: url(../../_images/m/area-battle/ink-stains/ink-#{$num}.png);
+      }
+    }
+
+    &.ink1 {
+      @include ink(1);
+      @include inkOnMobile(1);
       width: 9.1319444444vw;
       height: 10.5208333333vw;
-      background-image: url(../../_images/ink-stains/ink-stain-1.png);
 
-      z-index: 3;
       left: 2.0833333333vw;
       top: 2.4479166667vw;
+
+      @include screen.mobile {
+        width: 39.0789473684vw;
+        height: 45.3947368421vw;
+
+        z-index: 1;
+        left: unset;
+        right: -10.5263157895vw;
+        top: 60.5263157895vw;
+      }
     }
 
-    &.stain2 {
+    &.ink2 {
+      @include ink(2);
+      @include inkOnMobile(2);
       width: 18.5763888889vw;
       height: 18.6458333333vw;
-      background-image: url(../../_images/ink-stains/ink-stain-2.png);
 
-      z-index: 3;
       left: 12.7604166667vw;
       top: 8.2291666667vw;
+
+      @include screen.mobile {
+        width: 89.8684210526vw;
+        height: 77.3684210526vw;
+
+        left: unset;
+        top: unset;
+        right: -19.7368421053vw;
+        bottom: -8.6842105263vw;
+      }
     }
-    &.stain3 {
+
+    &.ink3 {
+      @include ink(3);
+      @include inkOnMobile(3);
       width: 39.0277777778vw;
       height: 30vw;
-      background-image: url(../../_images/ink-stains/ink-stain-3.png);
 
       left: 58.6979166667vw;
       top: 14.6875vw;
+
+      @include screen.mobile {
+        width: 20.1315789474vw;
+        height: 23.0263157895vw;
+
+        left: unset;
+        top: unset;
+        right: 5.5263157895vw;
+        bottom: -1.7105263158vw;
+      }
     }
-    &.stain4 {
+    &.ink4 {
+      @include ink(4);
       width: 9.1319444444vw;
       height: 10.4861111111vw;
-      background-image: url(../../_images/ink-stains/ink-stain-4.png);
 
       left: 82.5520833333vw;
       top: 30.6770833333vw;
+
+      @include screen.mobile {
+        display: none;
+      }
     }
-    &.stain5 {
+    &.ink5 {
+      @include ink(5);
       width: 27.7777777778vw;
       height: 27.3611111111vw;
-      background-image: url(../../_images/ink-stains/ink-stain-5.png);
 
       left: 60.0520833333vw;
       top: 42.1354166667vw;
+
+      @include screen.mobile {
+        display: none;
+      }
     }
-    &.stain6 {
+    &.ink6 {
+      @include ink(6);
       width: 22.1180555556vw;
       height: 20.1388888889vw;
-      background-image: url(../../_images/ink-stains/ink-stain-6.png);
 
       left: 82.9166666667vw;
       top: 53.90625vw;
+
+      @include screen.mobile {
+        display: none;
+      }
     }
   }
 }
