@@ -21,14 +21,14 @@
       margin: 0 0.5208333333vw;
       width: 1.6666666667vw;
       height: 1.875vw;
-      background: url(../../../_images/movie-nav/icon_bullet.png) no-repeat center / cover;
+      background: url(../../../_images/pc/movie/nav/icon-bullet.png) no-repeat center / cover;
 
       border: none;
       overflow: hidden;
       text-indent: 9999%;
 
       &.current {
-        background: url(../../../_images/movie-nav/icon_bullet_active.png) no-repeat center / cover;
+        background: url(../../../_images/pc/movie/nav/icon-bullet-active.png) no-repeat center / cover;
       }
     }
   }
@@ -53,7 +53,7 @@
     &.prev {
       margin-right: 2.34375vw;
       animation: movie-nav-arrowBtn-prev 1.25s infinite ease-out;
-      background: url(../../../_images/movie-nav/btn_prev.png) no-repeat center / cover;
+      background: url(../../../_images/pc/movie/nav/btn-prev.png) no-repeat center / cover;
 
       @include screen.mobile {
         left: 6.5789473684vw;
@@ -64,7 +64,7 @@
     &.next {
       margin-left: 2.34375vw;
       animation: movie-nav-arrowBtn-next 1.25s infinite ease-out;
-      background: url(../../../_images/movie-nav/btn_next.png) no-repeat center / cover;
+      background: url(../../../_images/pc/movie/nav/btn-next.png) no-repeat center / cover;
 
       @include screen.mobile {
         right: 6.5789473684vw;

@@ -1,16 +1,16 @@
 import { StaticImageData } from 'next/image';
 
-import thumbnail1Image from '@sass/splatoon3/_images/movie-thumbnails/movie-thumbnail-1.png';
-import thumbnail2Image from '@sass/splatoon3/_images/movie-thumbnails/movie-thumbnail-2.png';
-import thumbnail3Image from '@sass/splatoon3/_images/movie-thumbnails/movie-thumbnail-3.jpeg';
-import thumbnail4Image from '@sass/splatoon3/_images/movie-thumbnails/movie-thumbnail-4.jpeg';
-import thumbnail5Image from '@sass/splatoon3/_images/movie-thumbnails/movie-thumbnail-5.jpeg';
-import thumbnail6Image from '@sass/splatoon3/_images/movie-thumbnails/movie-thumbnail-6.jpeg';
-import thumbnail7Image from '@sass/splatoon3/_images/movie-thumbnails/movie-thumbnail-7.jpeg';
-import thumbnail8Image from '@sass/splatoon3/_images/movie-thumbnails/movie-thumbnail-8.jpeg';
-import thumbnail9Image from '@sass/splatoon3/_images/movie-thumbnails/movie-thumbnail-9.jpeg';
-import thumbnail10Image from '@sass/splatoon3/_images/movie-thumbnails/movie-thumbnail-10.png';
-import thumbnail11Image from '@sass/splatoon3/_images/movie-thumbnails/movie-thumbnail-11.png';
+import thumbnail1Image from '@sass/splatoon3/_images/pc/movie/thumbnails/movie-thumbnail-1.png';
+import thumbnail2Image from '@sass/splatoon3/_images/pc/movie/thumbnails/movie-thumbnail-2.png';
+import thumbnail3Image from '@sass/splatoon3/_images/pc/movie/thumbnails/movie-thumbnail-3.jpeg';
+import thumbnail4Image from '@sass/splatoon3/_images/pc/movie/thumbnails/movie-thumbnail-4.jpeg';
+import thumbnail5Image from '@sass/splatoon3/_images/pc/movie/thumbnails/movie-thumbnail-5.jpeg';
+import thumbnail6Image from '@sass/splatoon3/_images/pc/movie/thumbnails/movie-thumbnail-6.jpeg';
+import thumbnail7Image from '@sass/splatoon3/_images/pc/movie/thumbnails/movie-thumbnail-7.jpeg';
+import thumbnail8Image from '@sass/splatoon3/_images/pc/movie/thumbnails/movie-thumbnail-8.jpeg';
+import thumbnail9Image from '@sass/splatoon3/_images/pc/movie/thumbnails/movie-thumbnail-9.jpeg';
+import thumbnail10Image from '@sass/splatoon3/_images/pc/movie/thumbnails/movie-thumbnail-10.png';
+import thumbnail11Image from '@sass/splatoon3/_images/pc/movie/thumbnails/movie-thumbnail-11.png';
 
 type Movie = {
   id: number;
