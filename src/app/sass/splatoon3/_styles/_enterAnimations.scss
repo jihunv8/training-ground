@@ -9,6 +9,21 @@
   }
 }
 
+/* 서서히 드러나며 작은상태에서 커졌다가 원래크기로 돌아옴 */
+@mixin upScaleFadeOutBack($selector) {
+  opacity: 0;
+  transform: scale(0.5, 0.5);
+  transition:
+    opacity,
+    transform 0.3s cubic-bezier(0.5, 1.5, 0.8, 1.1);
+
+  &#{$selector} {
+    opacity: 1;
+    transform: scale(1, 1);
+    @content;
+  }
+}
+
 /* 서서히 드러나며 아래에서 올라옴 */
 @mixin upFade($selector) {
   transition:

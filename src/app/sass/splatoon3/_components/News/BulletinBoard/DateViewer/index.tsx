@@ -1,4 +1,7 @@
+import { createClassNamer } from '@/app/sass/splatoon3/_utils/class-namer/classNamer';
 import style from './index.module.scss';
+
+const namer = createClassNamer(style);
 
 export default function DateViewer({ date: _date }: { date: string }) {
   let date = _date;
@@ -11,7 +14,7 @@ export default function DateViewer({ date: _date }: { date: string }) {
   const splited = date.split('');
 
   return (
-    <div className={style.wrapper}>
+    <div className={namer('wrapper')}>
       {splited.map((num, i) => (
         <DateNumber key={i} number={num} />
       ))}
@@ -25,5 +28,5 @@ export default function DateViewer({ date: _date }: { date: string }) {
 function DateNumber({ number }: { number: number | string | '-' | '.' }) {
   const className = number === '-' || number === '.' ? 'dot' : `num${number}`;
 
-  return <span className={`${style.number} ${style[className]}`}>{number}</span>;
+  return <span className={namer('number', className)}>{number}</span>;
 }
