@@ -1,9 +1,18 @@
+@use '../../_styles/screen';
+@use '../../_styles/enterAnimations';
+
 .wrapper {
   margin-top: -7.7604166667vw;
 
   height: 58.6458333333vw;
   position: relative;
   z-index: 1;
+
+  @include screen.mobile {
+    margin-top: -7.6315789474vw;
+    padding-top: 31.5789473684vw;
+    height: 210.5263157895vw;
+  }
 
   .movieBg {
     width: 89.5833333333vw;
@@ -12,6 +21,13 @@
     position: absolute;
     right: -26.0416666667vw;
     bottom: 0;
+
+    @include screen.mobile {
+      width: 110.5263157895vw;
+      height: 136.8421052632vw;
+      right: -18.4210526316vw;
+      top: 46.0526315789vw;
+    }
 
     > video {
       width: 100%;
@@ -27,7 +43,12 @@
     top: 0;
     left: 0;
 
-    background: url(../../_images/battle/bg-battle-with-two-forms.png) no-repeat center top / cover;
+    background: url(../../_images/pc/battle-with-two-forms/bg.png) no-repeat center top / 100% auto;
+
+    @include screen.mobile {
+      background-image: url(../../_images/m/battle-with-two-forms/bg.png);
+      clip-path: polygon(0% 3.8%, 100% 0%, 100% 100%, 0% 100%);
+    }
   }
 
   .title {
@@ -35,28 +56,37 @@
     height: 15.0347222222vw;
 
     position: absolute;
-    top: 3.125vw;
     left: -2.0833333333vw;
+    top: 3.125vw;
 
     transform: rotate(-3.49deg);
 
     overflow: hidden;
     text-indent: -9999%;
 
+    @include screen.mobile {
+      width: 110.5263157895vw;
+      height: 28.6842105263vw;
+
+      left: -5.2631578947vw;
+      top: -3.6842105263vw;
+
+      transform: rotate(-4.41deg);
+    }
+
     .banner {
       width: 100%;
       height: 100%;
-      background: url(../../_images/battle/title-battle-with-two-forms.png) no-repeat center / cover;
+      background: url(../../_images/pc/battle-with-two-forms/title.png) no-repeat center / cover;
 
       position: absolute;
       top: 0;
       left: 0;
 
-      transform: translateX(-100%) scale(0.5);
-      transition: transform 0.3s;
+      @include enterAnimations.bandLeftToRight('.visible');
 
-      &.visible {
-        transform: translateX(0px);
+      @include screen.mobile {
+        background-image: url(../../_images/m/battle-with-two-forms/title.png);
       }
     }
   }
@@ -68,20 +98,42 @@
     top: 22.7083333333vw;
     left: 19.3229166667vw;
 
-    font-size: 1.25vw;
-    line-height: 1.66;
-    color: #191919;
-    font-weight: 900;
+    transform: rotate(-3.7deg);
 
-    transition:
-      opacity 0.5s,
-      transform 0.5s;
-    opacity: 0;
-    transform: translate(0px, 15px) rotate(-3.69985deg);
+    @include screen.mobile {
+      margin-left: 6vw;
 
-    &.visible {
-      opacity: 1;
-      transform: rotate(-3.69985deg);
+      position: relative;
+      top: 0;
+      left: 0;
+
+      transform: rotate(0);
+    }
+
+    .textInner {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+
+      font-size: 1.25vw;
+      line-height: 1.66;
+      color: #191919;
+      font-weight: 900;
+
+      @include enterAnimations.upFade('.visible');
+
+      @include screen.mobile {
+        font-size: 3.9473684211vw;
+        line-height: 1.53;
+      }
+
+      .brOnMobile {
+        display: none;
+
+        @include screen.mobile {
+          display: inline;
+        }
+      }
     }
   }
 
@@ -93,7 +145,7 @@
     left: 25.9375vw;
     top: 28.5416666667vw;
 
-    background: url(../../_images//battle/detail-of-two-forms.png) no-repeat center / cover;
+    background: url(../../_images/pc/battle-with-two-forms/text-more.png) no-repeat center / cover;
 
     border: none;
 
@@ -115,6 +167,17 @@
       &:hover {
         transform: scale(1.05);
       }
+    }
+
+    @include screen.mobile {
+      margin-left: 6.0526315789vw;
+      width: 81.8421052632vw;
+      height: 24.3421052632vw;
+      background-image: url(../../_images/m/battle-with-two-forms/text-more.png);
+
+      position: relative;
+      top: 0;
+      left: 0;
     }
   }
 }
