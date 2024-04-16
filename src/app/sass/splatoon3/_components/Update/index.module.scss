@@ -247,13 +247,6 @@
 
     @include enterAnimations.upFade('.visible');
 
-    position: absolute;
-    z-index: 2;
-    left: 3.0263157895vw;
-    top: 53.9473684211vw;
-    width: 94.7368421053vw;
-    height: 57.2368421053vw;
-
     @include screen.mobile {
       width: 94.7368421053vw;
       height: 57.2368421053vw;
