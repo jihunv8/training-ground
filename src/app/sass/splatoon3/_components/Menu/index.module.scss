@@ -1,8 +1,33 @@
+@use '../../_styles/enterAnimations';
+@use '../../_styles/screen';
+
 .wrapper {
   height: 100.78125vw;
-  background: url(../../_images/menu/bg.png) no-repeat center top / cover;
+
   position: relative;
-  // z-index: 1;
+  z-index: 1;
+
+  @include screen.mobile {
+    margin-top: -14.4736842105vw;
+    padding-top: 42.5vw;
+    padding-bottom: 40.2631578947vw;
+    height: auto;
+  }
+
+  .bg {
+    width: 100%;
+    height: 100%;
+    background: url(../../_images/pc/menu/bg.png) no-repeat center top / cover;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    @include screen.mobile {
+      background-image: url(../../_images/m/menu/bg.png);
+      clip-path: polygon(0% 0%, 100% 1.6%, 100% 100%, 0% 100%);
+    }
+  }
 
   .title {
     width: 103.125vw;
@@ -17,20 +42,35 @@
     overflow: hidden;
     text-indent: -9999%;
 
+    @include screen.mobile {
+      width: 105vw;
+      height: 30.7894736842vw;
+
+      top: 3vw;
+      transform: rotate(5.04deg);
+    }
+
     .band {
       width: 100%;
       height: 100%;
-      background: url(../../_images/menu/title.png) no-repeat center / cover;
+      background: url(../../_images/pc/menu/title.png) no-repeat center / cover;
 
       position: absolute;
       left: 0;
       top: 0;
 
-      transition: transform 0.3s;
-      transform: translateX(100%);
-
       &.visible {
-        transform: translateX(0px);
+        transform: translate(0);
+      }
+
+      @include enterAnimations.bandLeftToRight('.visible');
+
+      @include screen.mobile {
+        background-image: url(../../_images/m/menu/title.png);
+        width: 200vw;
+        height: 100%;
+
+        left: -50vw;
       }
     }
   }
@@ -48,20 +88,29 @@
     overflow: hidden;
     text-indent: -9999%;
 
+    @include screen.mobile {
+      width: 110.5263157895vw;
+      height: 13.2894736842vw;
+
+      left: -5.2631578947vw;
+      top: 30.7894736842vw;
+
+      transform: rotate(-6.61deg);
+    }
+
     .band {
       width: 100%;
       height: 100%;
-      background: url(../../_images/menu/subtitle.png) no-repeat center / cover;
+      background: url(../../_images/pc/menu/subtitle.png) no-repeat center / cover;
 
       position: absolute;
       left: 0;
       top: 0;
 
-      transition: transform 0.3s;
-      transform: translateX(-100%);
+      @include enterAnimations.bandRightToLeft('.visible');
 
-      &.visible {
-        transform: translateX(0px);
+      @include screen.mobile {
+        background-image: url(../../_images/m/menu/subtitle.png);
       }
     }
   }

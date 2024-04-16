@@ -1,19 +1,10 @@
+@use '../../../../_styles/screen';
+@use '../../../../_styles/enterAnimations';
+
 .wrapper {
   position: absolute;
 
-  > a {
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-
-  transition:
-    opacity 0.3s linear,
-    transform 0.3s cubic-bezier(0.5, 1.5, 0.8, 1.1);
-  opacity: 0;
-  transform: scale(0.5, 0.5);
-
-  &.visible {
+  @include enterAnimations.upScaleFadeOutBack('.visible') {
     transition: transform 250ms cubic-bezier(0.34, 1.3, 0.64, 1);
     opacity: 1;
     transform: translate(0px, 0px);
@@ -29,12 +20,22 @@
         }
       }
     }
+
+    @include screen.mobile {
+      &:hover {
+        transform: scale(1);
+      }
+    }
+  }
+
+  @include screen.mobile {
+    position: static;
   }
 
   &.battle {
     width: 27.1875vw;
     height: 36.5277777778vw;
-    background: url(../../../../_images/menu/btn-battle.png) no-repeat center top / cover;
+    background: url(../../../../_images/pc/menu/btn-battle.png) no-repeat center top / cover;
 
     left: 13.3333333333vw;
     top: 17.4479166667vw;
@@ -44,7 +45,7 @@
       display: block;
       width: 12.4305555556vw;
       height: 7.0486111111vw;
-      background: url(../../../../_images/menu/btn-battle-text.png) no-repeat center top / cover;
+      background: url(../../../../_images/pc/menu/btn-battle-text.png) no-repeat center top / cover;
 
       position: absolute;
       left: 10.3645833333vw;
@@ -52,38 +53,23 @@
 
       opacity: 0;
       transition: opacity 0.13s linear;
+
+      @include screen.mobile {
+        content: none;
+      }
     }
-  }
 
-  &.weapon {
-    width: 44.4444444444vw;
-    height: 18.0208333333vw;
-    background: url(../../../../_images/menu/btn-weapon.png) no-repeat center top / cover;
-
-    left: 39.6875vw;
-    top: 18.3333333333vw;
-
-    &::after {
-      content: '';
-      display: block;
-
-      width: 18.3333333333vw;
-      height: 7.2222222222vw;
-      background: url(../../../../_images/menu/btn-weapon-text.png) no-repeat center top / cover;
-
-      position: absolute;
-      left: 8.4375vw;
-      top: 9.8958333333vw;
-
-      opacity: 0;
-      transition: opacity 0.13s linear;
+    @include screen.mobile {
+      background-image: url(../../../../_images/m/menu/btn-battle.png);
+      width: 98.5526315789vw;
+      height: 67.5vw;
     }
   }
 
   &.world {
     width: 44.4097222222vw;
     height: 17.9166666667vw;
-    background: url(../../../../_images/menu/btn-world.png) no-repeat center top / cover;
+    background: url(../../../../_images/pc/menu/btn-world.png) no-repeat center top / cover;
 
     left: 39.6875vw;
     top: 36.09375vw;
@@ -94,7 +80,7 @@
 
       width: 17.7430555556vw;
       height: 5.5902777778vw;
-      background: url(../../../../_images/menu/btn-world-text.png) no-repeat center top / cover;
+      background: url(../../../../_images/pc/menu/btn-world-text.png) no-repeat center top / cover;
 
       position: absolute;
       left: 1.1979166667vw;
@@ -102,60 +88,155 @@
 
       opacity: 0;
       transition: opacity 0.13s linear;
+
+      @include screen.mobile {
+        content: none;
+      }
+    }
+
+    @include screen.mobile {
+      margin-top: 0vw;
+      width: 92.1052631579vw;
+      height: 60.5263157895vw;
+      background-image: url(../../../../_images/m/menu/btn-world.png);
+    }
+  }
+
+  &.weapon {
+    width: 44.4444444444vw;
+    height: 18.0208333333vw;
+    background: url(../../../../_images/pc/menu/btn-weapon.png) no-repeat center top / cover;
+
+    left: 39.6875vw;
+    top: 18.3333333333vw;
+
+    &::after {
+      content: '';
+      display: block;
+
+      width: 18.3333333333vw;
+      height: 7.2222222222vw;
+      background: url(../../../../_images/pc/menu/btn-weapon-text.png) no-repeat center top / cover;
+
+      position: absolute;
+      left: 8.4375vw;
+      top: 9.8958333333vw;
+
+      opacity: 0;
+      transition: opacity 0.13s linear;
+
+      @include screen.mobile {
+        content: none;
+      }
+    }
+
+    @include screen.mobile {
+      margin-top: 2.2368421053vw;
+      width: 95.2631578947vw;
+      height: 61.8421052632vw;
+      background-image: url(../../../../_images/m/menu/btn-weapon.png);
     }
   }
 
   &.hero {
     width: 22.1875vw;
     height: 18.3680555556vw;
-    background: url(../../../../_images/menu/btn-hero.png) no-repeat center top / cover;
+    background: url(../../../../_images/pc/menu/btn-hero.png) no-repeat center top / cover;
 
     left: 15.8333333333vw;
     top: 53.0729166667vw;
+
+    @include screen.mobile {
+      margin-top: 2.3684210526vw;
+      background-image: url(../../../../_images/m/menu/btn-hero.png);
+      width: 90.7894736842vw;
+      height: 56.1842105263vw;
+    }
   }
 
   &.salmon {
     width: 21.4236111111vw;
     height: 17.1875vw;
-    background: url(../../../../_images/menu/btn-salmon.png) no-repeat center top / cover;
+    background: url(../../../../_images/pc/menu/btn-salmon.png) no-repeat center top / cover;
 
     left: 39.1145833333vw;
     top: 54.1145833333vw;
+
+    @include screen.mobile {
+      margin-top: -0.6578947368vw;
+      width: 99.3421052632vw;
+      height: 49.2105263158vw;
+      background-image: url(../../../../_images/m/menu/btn-salmon.png);
+    }
   }
 
   &.fes {
     width: 23.6458333333vw;
     height: 16.4583333333vw;
-    background: url(../../../../_images/menu/btn-fes.png) no-repeat center top / cover;
+    background: url(../../../../_images/pc/menu/btn-fes.png) no-repeat center top / cover;
 
     left: 60.5729166667vw;
     top: 55vw;
+
+    @include screen.mobile {
+      margin-top: 0.5263157895vw;
+      width: 90.7894736842vw;
+      height: 53.0263157895vw;
+      background-image: url(../../../../_images/m/menu/btn-fes.png);
+    }
   }
 
   &.amiibo {
     width: 21.6666666667vw;
     height: 12.0486111111vw;
-    background: url(../../../../_images/menu/btn-amiibo.png) no-repeat center top / cover;
+    background: url(../../../../_images/pc/menu/btn-amiibo.png) no-repeat center top / cover;
 
     left: 15.9895833333vw;
     top: 71.4583333333vw;
+
+    @include screen.mobile {
+      margin-top: 6.3157894737vw;
+      width: 90.6578947368vw;
+      height: 35.9210526316vw;
+      background-image: url(../../../../_images/m/menu/btn-amiibo.png);
+    }
   }
 
   &.app {
     width: 21.3194444444vw;
     height: 11.4583333333vw;
-    background: url(../../../../_images/menu/btn-app.png) no-repeat center top / cover;
+    background: url(../../../../_images/pc/menu/btn-app.png) no-repeat center top / cover;
 
     left: 39.21875vw;
     top: 71.8229166667vw;
+
+    @include screen.mobile {
+      margin-top: 1.1842105263vw;
+      width: 90.6578947368vw;
+      height: 36.0526315789vw;
+      background-image: url(../../../../_images/m/menu/btn-app.png);
+    }
   }
 
   &.lab {
     height: 10.9027777778vw;
     width: 22.2569444444vw;
-    background: url(../../../../_images/menu/btn-lab.png) no-repeat center top / cover;
+    background: url(../../../../_images/pc/menu/btn-lab.png) no-repeat center top / cover;
 
     left: 62.1354166667vw;
     top: 72.1354166667vw;
+
+    @include screen.mobile {
+      margin-top: 4.4736842105vw;
+      width: 91.0526315789vw;
+      height: 33.2894736842vw;
+      background-image: url(../../../../_images/m/menu/btn-lab.png);
+    }
+  }
+
+  > a {
+    display: block;
+    width: 100%;
+    height: 100%;
   }
 }
