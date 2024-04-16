@@ -1,3 +1,6 @@
+@use '../../_styles/enterAnimations';
+@use '../../_styles/screen';
+
 @mixin layer {
   width: 100%;
   height: 100%;
@@ -68,7 +71,7 @@
   .viewer {
     width: 100%;
     height: 100vh;
-    background: url(../../_images/battle-style/bg.jpg) no-repeat center / cover;
+    background: url(../../_images/pc/battle-style/bg.jpg) no-repeat center / cover;
 
     position: absolute;
     top: 0;
@@ -77,6 +80,27 @@
 
     &.fixed {
       position: fixed;
+    }
+
+    @include screen.mobile {
+      background-image: url(../../_images/m/battle-style/bg.jpg);
+    }
+
+    .blur {
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+
+      position: absolute;
+      left: 0;
+      top: 0;
+
+      transition: opacity 0.3s linear;
+      opacity: 0;
+
+      &.visible {
+        opacity: 1;
+      }
     }
 
     .mainView {
@@ -90,7 +114,7 @@
         width: 34.8958333333vw;
         height: 11.7361111111vw;
 
-        background: url(../../_images/battle-style/title.png) no-repeat center / cover;
+        background: url(../../_images/pc/battle-style/title.png) no-repeat center / cover;
 
         overflow: hidden;
         text-indent: -9999%;
@@ -106,12 +130,29 @@
           visibility: visible;
           transform: translateY(-182.3%) scale(1);
         }
+
+        @include screen.mobile {
+          width: 89.4736842105vw;
+          height: 32.6315789474vw;
+
+          left: 6.4473684211vw;
+          top: 33%;
+
+          background-image: url(../../_images/m/battle-style/title.png);
+          background-size: 100% auto;
+
+          transform: translateY(-100%) scale(1.3);
+
+          &.visible {
+            transform: translateY(-100%) scale(1);
+          }
+        }
       }
 
       .c3 {
         width: 97.4479166667vw;
         height: 25.625vw;
-        background: url(../../_images/battle-style/c_3.png) no-repeat center / cover;
+        background: url(../../_images/pc/battle-style/character-3.png) no-repeat center / cover;
 
         position: absolute;
         left: -0.1041666667vw;
@@ -124,6 +165,20 @@
 
         &.visible {
           opacity: 1;
+        }
+
+        @include screen.mobile {
+          width: 100%;
+          height: 75vh;
+
+          top: unset;
+          left: 0;
+          bottom: 8.33333333vh;
+
+          background-image: url(../../_images/m/battle-style/character-3.png);
+          background-size: auto 100%;
+
+          transform: translateY(0);
         }
       }
     }
@@ -159,13 +214,35 @@
 
         @include infiniteImage(
           weapon,
-          url(../../_images/battle-style/img-weapon1.png),
+          url(../../_images/pc/battle-style/img-weapon1.png),
           116.71875vw,
-          url(../../_images/battle-style/img-weapon2.png),
+          url(../../_images/pc/battle-style/img-weapon2.png),
           98.90625vw,
-          24.7916666667vw,
+          $imgH,
           28s
         );
+
+        @include screen.mobile {
+          $imgH: 28.64814815vh;
+          width: 100%;
+          height: 28.64814815vh;
+
+          left: 0;
+          top: unset;
+          bottom: 17.96296296vh;
+
+          transform: translateY(0);
+
+          @include infiniteImage(
+            weaponMobile,
+            url(../../_images/pc/battle-style/img-weapon1.png),
+            134.875vh,
+            url(../../_images/pc/battle-style/img-weapon2.png),
+            114.29166667vh,
+            $imgH,
+            28s
+          );
+        }
       }
 
       .weaponHeader {
@@ -188,10 +265,25 @@
           transform: translate(0, -192.5%);
         }
 
+        @include screen.mobile {
+          width: 100%;
+          height: auto;
+
+          z-index: 2;
+          left: 0;
+          top: 33%;
+
+          transform: translate(-15%, -50%);
+
+          &.visible {
+            transform: translate(0, -50%);
+          }
+        }
+
         .weaponTitle {
           width: 37.8125vw;
           height: 12.6041666667vw;
-          background: url(../../_images/battle-style/title_weapon.png) no-repeat center / cover;
+          background: url(../../_images/pc/battle-style/title-weapon.png) no-repeat center / cover;
 
           position: absolute;
           left: 0;
@@ -199,6 +291,17 @@
 
           overflow: hidden;
           text-indent: -9999%;
+
+          @include screen.mobile {
+            margin-left: 2.3684210526vw;
+            width: 95.5263157895vw;
+            height: 31.8421052632vw;
+
+            position: static;
+
+            background-image: url(../../_images/m/battle-style/title-weapon.png);
+            background-size: 100% auto;
+          }
         }
 
         .weaponDescription {
@@ -212,13 +315,25 @@
           color: #fff;
 
           transform: rotate(-0.7deg);
+
+          @include screen.mobile {
+            margin-left: 40vw;
+            margin-top: 1.4473684211vw;
+
+            transform: rotate(-0.7deg);
+
+            font-size: 3.9473684211vw;
+            line-height: 1.53;
+
+            position: static;
+          }
         }
       }
 
       .c1 {
         width: 35.3125vw;
         height: 36.71875vw;
-        background: url(../../_images/battle-style/c_1.png) no-repeat center / cover;
+        background: url(../../_images/pc/battle-style/character-1.png) no-repeat center / cover;
 
         position: absolute;
         left: -1.6145833333vw;
@@ -235,6 +350,24 @@
           opacity: 1;
           transform: translate(0, -35.4%);
         }
+
+        @include screen.mobile {
+          width: 23.13240741vh;
+          height: 49.8vh;
+
+          top: unset;
+          left: -4.30098308vh;
+          bottom: 14.44444444vh;
+
+          background-image: url(../../_images/m/battle-style/character-1.png);
+          background-size: 100% auto;
+
+          transform: translateX(-15%);
+
+          &.visible {
+            transform: translateX(0);
+          }
+        }
       }
     }
 
@@ -242,8 +375,9 @@
       @include layer;
 
       .gearsImage {
+        $imgH: 27.890625vw;
         width: 291.4791666667vw;
-        height: 27.890625vw;
+        height: $imgH;
 
         position: absolute;
         left: 0;
@@ -267,13 +401,36 @@
 
         @include infiniteImage(
           gear,
-          url(../../_images/battle-style/img-gear1.png),
+          url(../../_images/pc/battle-style/img-gear1.png),
           149.1041666667vw,
-          url(../../_images/battle-style/img-gear2.png),
+          url(../../_images/pc/battle-style/img-gear2.png),
           142.375vw,
-          27.890625vw,
+          $imgH,
           36s
         );
+
+        @include screen.mobile {
+          $imgH: 26.25vh;
+
+          width: 274.33333333vh;
+          height: $imgH;
+
+          left: 0;
+          top: unset;
+          bottom: 15vh;
+
+          transform: translateY(0);
+
+          @include infiniteImage(
+            gearMobile,
+            url(../../_images/pc/battle-style/img-gear1.png),
+            140.33333333vh,
+            url(../../_images/pc/battle-style/img-gear2.png),
+            134vh,
+            $imgH,
+            36s
+          );
+        }
       }
 
       .gearHeader {
@@ -296,10 +453,24 @@
           transform: translate(0, -164%);
         }
 
+        @include screen.mobile {
+          width: 100%;
+          height: auto;
+
+          z-index: 2;
+          left: 0;
+          top: 33%;
+
+          transform: translate(15%, -50%);
+          &.visible {
+            transform: translate(0, -50%);
+          }
+        }
+
         .gearTitle {
           width: 35vw;
           height: 13.4375vw;
-          background: url(../../_images/battle-style/title_gear.png) no-repeat center / cover;
+          background: url(../../_images/pc/battle-style/title-gear.png) no-repeat center / cover;
 
           position: absolute;
           left: 0;
@@ -307,6 +478,17 @@
 
           overflow: hidden;
           text-indent: -9999%;
+
+          @include screen.mobile {
+            margin-left: 3.8157894737vw;
+            width: 92.2368421053vw;
+            height: 35.3947368421vw;
+
+            background-image: url(../../_images/m/battle-style/title-gear.png);
+            background-size: 100% auto;
+
+            position: static;
+          }
         }
 
         .gearDescription {
@@ -320,13 +502,30 @@
           color: #fff;
 
           transform: rotate(-1.7deg);
+
+          @include screen.mobile {
+            margin-left: 5.2631578947vw;
+            margin-top: 1.3157894737vw;
+
+            position: static;
+
+            font-size: 3.9473684211vw;
+            line-height: 1.53;
+          }
+
+          > br.onMobile {
+            display: none;
+            @include screen.mobile {
+              display: inline;
+            }
+          }
         }
       }
 
       .c2 {
         width: 30.8854166667vw;
         height: 37.8125vw;
-        background: url(../../_images/battle-style/c_2.png) no-repeat center / cover;
+        background: url(../../_images/pc/battle-style/character-2.png) no-repeat center / cover;
 
         position: absolute;
         right: 13.8020833333vw;
@@ -342,6 +541,24 @@
         &.visible {
           opacity: 1;
           transform: translate(0, -36.3%);
+        }
+
+        @include screen.mobile {
+          width: 37.65740741vh;
+          height: 51.33703704vh;
+
+          right: -4.73108139vh;
+          top: unset;
+          bottom: 15vh;
+
+          background-image: url(../../_images/m/battle-style/character-2.png);
+          background-size: 100% auto;
+
+          transform: translateX(15%);
+
+          &.visible {
+            transform: translateX(0);
+          }
         }
       }
     }

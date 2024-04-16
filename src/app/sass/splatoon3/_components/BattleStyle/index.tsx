@@ -9,6 +9,7 @@ export default function BattleStyle() {
   const [mainView, weapon, gear] = useVisible(3, { threshold: 0.5, isPersistent: true });
 
   const isViewerFixed = wrapper.isVisible;
+  const isVisibleBlur = wrapper.isVisible && !mainView.isVisible;
 
   const isVisibleTitle = mainView.isVisible;
   const isVisibleC3 = mainView.isVisible;
@@ -24,7 +25,7 @@ export default function BattleStyle() {
   return (
     <section ref={wrapper.ref} data-visible-id={wrapper.id} className={namer('wrapper')}>
       <div className={namer('viewer', isViewerFixed && 'fixed')}>
-        <div className={style.bg}></div>
+        <div className={namer('blur', isVisibleBlur && 'visible')}></div>
         <div className={namer('mainView')}>
           <h2 className={namer('title', isVisibleTitle && 'visible')}>어떤 무기와 어떤 옷, 어떤 스타일로 배틀할까?</h2>
           <div className={namer('c3', isVisibleC3 && 'visible')}></div>
@@ -53,10 +54,16 @@ export default function BattleStyle() {
           <div className={namer('gearHeader', isVisibleGearHeader && 'visible')}>
             <h2 className={namer('gearTitle')}>무기</h2>
             <p className={namer('gearDescription')}>
-              모자나 T셔츠, 스니커즈와 같은 아이템을 <br />
+              모자나 T셔츠,
+              <br className={namer('onMobile')} />
+              스니커즈와 같은 아이템을 <br />
               자유롭게 조합하며 즐길 수 있습니다. <br />
-              저마다 배틀을 돕는 특별한 능력도 붙어 있어 <br />
-              겉모습과 능력 모두 코디네이트하기 나름.
+              저마다 배틀을 돕는
+              <br className={namer('onMobile')} />
+              특별한 능력도 붙어 있어 <br />
+              겉모습과 능력
+              <br className={namer('onMobile')} />
+              모두 코디네이트하기 나름.
             </p>
           </div>
           <div className={namer('c2', isVisibleC2 && 'visible')}></div>
