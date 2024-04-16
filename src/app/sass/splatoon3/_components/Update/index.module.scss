@@ -1,13 +1,21 @@
+@use '../../_styles/screen';
 @use '../../_styles/enterAnimations';
 
 .wrapper {
   margin-top: -10.625vw;
   height: 57.03125vw;
 
-  background: url(../../_images/update/bg.png) no-repeat center top / cover;
+  background: url(../../_images/pc/update/bg.png) no-repeat center top / cover;
 
   position: relative;
   z-index: 1;
+
+  @include screen.mobile {
+    margin-top: -22.3684210526vw;
+    height: 163.8157894737vw;
+
+    background-image: url(../../_images/m/update/bg.png);
+  }
 
   .tape {
     width: 100%;
@@ -16,6 +24,10 @@
     position: absolute;
     left: 0;
 
+    @include screen.mobile {
+      height: 6.5789473684vw;
+    }
+
     &.tape1 {
       top: 19.4270833333vw;
       transform: rotate(-3.84deg);
@@ -23,11 +35,21 @@
       .tapeInner {
         @include enterAnimations.bandLeftToRight('.visible');
       }
+
+      @include screen.mobile {
+        top: 79.4736842105vw;
+        transform: rotate(7.07deg);
+      }
     }
 
     &.tape2 {
       top: 19.6875vw;
       transform: rotate(-15.57deg);
+
+      @include screen.mobile {
+        top: 73.6842105263vw;
+        transform: rotate(-17.79deg);
+      }
 
       .tapeInner {
         @include enterAnimations.bandRightToLeft('.visible');
@@ -38,6 +60,11 @@
       top: 46.3541666667vw;
       transform: rotate(4.24deg);
 
+      @include screen.mobile {
+        top: 140vw;
+        transform: rotate(21.52deg);
+      }
+
       .tapeInner {
         @include enterAnimations.bandLeftToRight('.visible');
       }
@@ -47,11 +74,19 @@
       width: 103.125vw;
       height: 2.9166666667vw;
 
-      background: url(../../_images/update/tape.png) repeat-x left top / auto 100%;
+      background: url(../../_images/pc/update/tape.png) repeat-x left top / auto 100%;
 
       position: absolute;
       left: -1.5625vw;
       top: 0;
+
+      @include screen.mobile {
+        width: 110.5263157895vw;
+        height: 6.5789473684vw;
+        background-image: url(../../_images/m/update/tape.png);
+
+        left: -5.2631578947vw;
+      }
     }
   }
 
@@ -60,65 +95,126 @@
 
     @include enterAnimations.ink('.visible');
 
+    @mixin ink($num) {
+      background: url(../../_images/pc/update/ink-stains/ink-#{$num}.png) no-repeat center / cover;
+    }
+
+    @mixin inkOnMobile($num) {
+      @include screen.mobile {
+        background: url(../../_images/m/update/ink-stains/ink-#{$num}.png) no-repeat center / cover;
+      }
+    }
+
     &.ink1 {
+      @include ink(1);
+      @include inkOnMobile(1);
+
       width: 35.3125vw;
       height: 24.4444444444vw;
-      background: url(../../_images/update/ink-stains/ink-1.png) no-repeat center / cover;
 
       right: -15.1041666667vw;
       top: -10.1041666667vw;
+
+      @include screen.mobile {
+        width: 49.6052631579vw;
+        height: 47.6315789474vw;
+
+        right: 0;
+        top: 19.4736842105vw;
+      }
     }
 
     &.ink2 {
+      @include ink(2);
+      @include inkOnMobile(2);
+
       width: 12.7083333333vw;
       height: 14.0277777778vw;
-      background: url(../../_images/update/ink-stains/ink-2.png) no-repeat center / cover;
 
       right: -0.625vw;
       top: -4.1666666667vw;
+
+      @include screen.mobile {
+        width: 26.9736842105vw;
+        height: 29.7368421053vw;
+
+        right: 1.1842105263vw;
+        top: 8.6842105263vw;
+      }
     }
 
     &.ink3 {
+      @include ink(3);
+      @include inkOnMobile(3);
+
       width: 12.7083333333vw;
       height: 10.7291666667vw;
-      background: url(../../_images/update/ink-stains/ink-3.png) no-repeat center / cover;
 
       left: 11.875vw;
       top: 18.75vw;
+
+      @include screen.mobile {
+        width: 36.3157894737vw;
+        height: 36.0526315789vw;
+
+        left: 1.9736842105vw;
+        top: 88.2894736842vw;
+      }
     }
 
     &.ink4 {
+      @include ink(4);
+      @include inkOnMobile(4);
+
       width: 15.2083333333vw;
       height: 14.375vw;
-      background: url(../../_images/update/ink-stains/ink-4.png) no-repeat center / cover;
 
       left: 8.59375vw;
       top: 30.3645833333vw;
+
+      @include screen.mobile {
+        width: 37.6315789474vw;
+        height: 35vw;
+
+        left: unset;
+        right: 1.1842105263vw;
+        top: 106.3157894737vw;
+      }
     }
 
     &.ink5 {
+      @include ink(5);
+
       width: 10.7638888889vw;
       height: 11.9444444444vw;
-      background: url(../../_images/update/ink-stains/ink-5.png) no-repeat center / cover;
 
       left: 76.1458333333vw;
       top: 35.2604166667vw;
+
+      @include screen.mobile {
+        display: none;
+      }
     }
 
     &.ink6 {
+      @include ink(6);
+
       width: 20.4861111111vw;
       height: 16.6666666667vw;
-      background: url(../../_images/update/ink-stains/ink-6.png) no-repeat center / cover;
 
       left: 77.1875vw;
       top: 25.9895833333vw;
+
+      @include screen.mobile {
+        display: none;
+      }
     }
   }
 
   .title {
     width: 56.8402777778vw;
     height: 16.0763888889vw;
-    background: url(../../_images/update/title.png) no-repeat left top / cover;
+    background: url(../../_images/pc/update/title.png) no-repeat left top / cover;
 
     position: absolute;
     left: 0;
@@ -128,24 +224,50 @@
     text-indent: -9999%;
 
     @include enterAnimations.fadeLeftToRight('.visible');
+
+    @include screen.mobile {
+      width: 90.7894736842vw;
+      height: 44.2105263158vw;
+      background-image: url(../../_images/m/update/title.png);
+
+      // z-index: 3;
+      left: 0;
+      top: -4.7368421053vw;
+    }
   }
 
   .mainImage {
     width: 59.8611111111vw;
     height: 34.0277777778vw;
-    background: url(../../_images/update/img-1.png) no-repeat center top / cover;
+    background: url(../../_images/pc/update/img-1.png) no-repeat center top / cover;
 
     position: absolute;
     left: 27.5vw;
     top: 10.9895833333vw;
 
     @include enterAnimations.upFade('.visible');
+
+    position: absolute;
+    z-index: 2;
+    left: 3.0263157895vw;
+    top: 53.9473684211vw;
+    width: 94.7368421053vw;
+    height: 57.2368421053vw;
+
+    @include screen.mobile {
+      width: 94.7368421053vw;
+      height: 57.2368421053vw;
+      background-image: url(../../_images/m/update/img-1.png);
+
+      left: 3.0263157895vw;
+      top: 53.9473684211vw;
+    }
   }
 
   .text1 {
     width: 30.2083333333vw;
     height: 13.125vw;
-    background: url(../../_images/update/text-1.png) no-repeat center top / cover;
+    background: url(../../_images/pc/update/text-1.png) no-repeat center top / cover;
 
     position: absolute;
     left: 10.5208333333vw;
@@ -155,12 +277,22 @@
     text-indent: -9999%;
 
     @include enterAnimations.downScaleFade('.visible');
+
+    @include screen.mobile {
+      width: 76.3157894737vw;
+      height: 34.0789473684vw;
+      background-image: url(../../_images/m/update/text-1.png);
+
+      z-index: 3;
+      left: 3.8157894737vw;
+      top: 27.5vw;
+    }
   }
 
   .text2 {
     width: 28.2291666667vw;
     height: 15.7986111111vw;
-    background: url(../../_images/update/text-2.png) no-repeat center top / cover;
+    background: url(../../_images/pc/update/text-2.png) no-repeat center top / cover;
 
     position: absolute;
     left: 12.65625vw;
@@ -170,5 +302,15 @@
     text-indent: -9999%;
 
     @include enterAnimations.downScaleFade('.visible');
+
+    @include screen.mobile {
+      width: 71.1842105263vw;
+      height: 39.7368421053vw;
+      background-image: url(../../_images/m/update/text-2.png);
+
+      z-index: 3;
+      left: 6.7105263158vw;
+      top: 106.3157894737vw;
+    }
   }
 }
