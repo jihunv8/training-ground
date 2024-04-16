@@ -43,10 +43,17 @@ export default function Product() {
           <Link href="temp" className={namer('link', 'productInfo')}>
             상품 정보
           </Link>
-
           <Link href="temp" className={namer('link', 'playInfo')}>
             <span>플레이 인원수・컨트롤러</span>
           </Link>
+          <div className={namer('onlineOnMobile')}>
+            <Link href="temp" className={namer('onlineIcon')}>
+              online
+            </Link>
+            <p className={namer('onlineText')}>
+              온라인 플레이를 이용하려면, <Link href="temp">「Nintendo Switch Online」</Link> 가입이 필요합니다 (유료).
+            </p>
+          </div>
         </div>
       </div>
       <div className={namer('footer')}>

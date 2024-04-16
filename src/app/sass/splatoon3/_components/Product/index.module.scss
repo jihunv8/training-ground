@@ -1,4 +1,5 @@
 @use '../../_styles/enterAnimations';
+@use '../../_styles/screen';
 
 .wrapper {
   margin-top: -8.8541666667vw;
@@ -6,22 +7,48 @@
   padding-bottom: 4.5833333333vw;
 
   min-height: 41.0416666667vw;
-  background: url(../../_images/product/bg.png) no-repeat center top / cover;
+  background: url(../../_images/pc/product/bg.png) no-repeat center top / cover;
 
   position: relative;
+
+  @include screen.mobile {
+    margin-top: -17.1052631579vw;
+    padding-top: 18.5526315789vw;
+    height: 228.2894736842vw;
+
+    background-image: url(../../_images/m/product/bg.png);
+  }
 
   .body {
     display: flex;
     justify-content: center;
     color: #000;
 
+    @include screen.mobile {
+      display: block;
+      position: relative;
+    }
+
     .package {
       width: 11.71875vw;
+
+      @include screen.mobile {
+        width: 36.5789473684vw;
+
+        position: absolute;
+        left: 10.5263157895vw;
+        top: 0;
+      }
 
       .packageImage {
         width: 10.625vw;
         height: 17.2395833333vw;
-        background: url(../../_images/product/img-package.png) no-repeat center top / cover;
+        background: url(../../_images/pc/product/img-package.png) no-repeat center top / cover;
+
+        @include screen.mobile {
+          width: 32.7631578947vw;
+          height: 52.8947368421vw;
+        }
       }
 
       .packageText {
@@ -31,6 +58,12 @@
         font-weight: 900;
         line-height: 1.33;
         letter-spacing: 0.02em;
+
+        @include screen.mobile {
+          margin-top: 0.2631578947vw;
+          font-size: 2.3684210526vw;
+          letter-spacing: -0.02em;
+        }
       }
     }
 
@@ -38,30 +71,62 @@
       padding-top: 1.3541666667vw;
       width: 27.96875vw;
 
+      @include screen.mobile {
+        width: 100%;
+        padding-top: 7.8947368421vw;
+        padding-left: 47.1052631579vw;
+        height: 56.0526315789vw;
+      }
+
       .title {
         font-size: 3.125vw;
         letter-spacing: 0.04em;
         font-weight: 900;
+
+        @include screen.mobile {
+          font-size: 5.2631578947vw;
+        }
       }
 
       .releaseDate {
         margin-top: 0.78125vw;
         font-size: 1.6666666667vw;
         font-weight: 900;
+
+        @include screen.mobile {
+          margin-top: 2.2368421053vw;
+          font-size: 3.1578947368vw;
+          letter-spacing: 0.02em;
+        }
       }
 
       .contentsBody {
         display: flex;
         padding-top: 1.0416666667vw;
 
+        @include screen.mobile {
+          display: block;
+          margin-top: 5.6578947368vw;
+          padding-top: 0;
+        }
+
         .price {
           padding-top: 0.3645833333vw;
           width: 15.15625vw;
+
+          @include screen.mobile {
+            padding-top: 0;
+            width: 100%;
+          }
 
           .priceTitle {
             font-size: 1.1458333333vw;
             font-weight: 900;
             letter-spacing: 0.02em;
+
+            @include screen.mobile {
+              font-size: 3.1578947368vw;
+            }
           }
 
           .priceText {
@@ -70,21 +135,43 @@
             font-size: 0.8333333333vw;
             font-weight: 900;
 
+            @include screen.mobile {
+              flex-direction: column;
+              margin-top: 1.7105263158vw;
+              font-size: 2.3684210526vw;
+            }
+
             > span {
               display: block;
               width: 8.59375vw;
               letter-spacing: 0.06em;
+
+              @include screen.mobile {
+                padding-bottom: 1vw;
+                width: 40vw;
+                letter-spacing: 0.1em;
+              }
             }
           }
         }
 
         .etcLink {
+          @include screen.mobile {
+            margin-top: 4.4736842105vw;
+          }
+
           .amiibo {
             display: block;
             width: 5vw;
             height: 5vw;
 
-            background: url(../../_images/product/img-amiibo.png) no-repeat center / cover;
+            background: url(../../_images/pc/product/img-amiibo.png) no-repeat center / cover;
+
+            @include screen.mobile {
+              margin-left: 0.9210526316vw;
+              width: 13.8157894737vw;
+              height: 13.6842105263vw;
+            }
           }
         }
       }
@@ -102,13 +189,17 @@
         background-color: rgba(204, 204, 161, 0.5);
         border-radius: 0.2604166667vw;
 
+        @include screen.mobile {
+          display: none; //임시적
+        }
+
         .onlineIcon {
           flex-shrink: 0;
           display: block;
 
           width: 5.7291666667vw;
           height: 2.3958333333vw;
-          background: url(../../_images/product/img-online.png) no-repeat center / cover;
+          background: url(../../_images/pc/product/img-online.png) no-repeat center / cover;
 
           overflow: hidden;
           text-indent: -9999%;
@@ -138,6 +229,15 @@
       padding-top: 0.8854166667vw;
       width: 24.53125vw;
 
+      @include screen.mobile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 0;
+        width: 100%;
+        margin-top: 7.1052631579vw;
+      }
+
       .link {
         @include enterAnimations.upScale(':hover');
         &.buy {
@@ -145,10 +245,17 @@
           margin-top: 0.9375vw;
           width: 24.53125vw;
           height: 6.7708333333vw;
-          background: url(../../_images/product/img-buy.png) no-repeat center top / 100% auto;
+          background: url(../../_images/pc/product/img-buy.png) no-repeat center top / 100% auto;
 
           overflow: hidden;
           text-indent: -9999%;
+
+          @include screen.mobile {
+            margin-top: 0;
+            width: 78.9473684211vw;
+            height: 15.9210526316vw;
+            background-image: url(../../_images/m/product/img-buy.png);
+          }
         }
 
         &.productInfo {
@@ -175,13 +282,27 @@
 
             width: 0.9895833333vw;
             height: 1.1979166667vw;
-            background: url(../../_images/product/icon-arrow.png) no-repeat center top / 100% auto;
+            background: url(../../_images/pc/product/icon-arrow.png) no-repeat center top / 100% auto;
 
             position: absolute;
             right: 1.40625vw;
             top: 50%;
 
             transform: translateY(-50%);
+            @include screen.mobile {
+              width: 3.1578947368vw;
+              height: 3.9473684211vw;
+
+              right: 7.1052631579vw;
+            }
+          }
+
+          @include screen.mobile {
+            margin-top: 5.1315789474vw;
+            width: 78.9473684211vw;
+            height: 11.3157894737vw;
+            font-size: 3.9473684211vw;
+            border-radius: 1.0526315789vw;
           }
         }
 
@@ -198,6 +319,15 @@
           letter-spacing: 0.02em;
           text-align: center;
 
+          @include screen.mobile {
+            margin-top: 3.2894736842vw;
+            width: 52.6315789474vw;
+
+            font-size: 3.1578947368vw;
+            text-align: left;
+            line-height: 1.25;
+          }
+
           > span {
             position: relative;
             display: inline-block;
@@ -208,14 +338,71 @@
               display: block;
               width: 0.6770833333vw;
               height: 0.8333333333vw;
-              background: url(../../_images/product/icon-arrow.png) no-repeat center top / 100% auto;
+              background: url(../../_images/pc/product/icon-arrow.png) no-repeat center top / 100% auto;
 
               position: absolute;
               left: 0;
               top: 50%;
 
               transform: translateY(-40%);
+
+              @include screen.mobile {
+                width: 2.2368421053vw;
+                height: 2.6315789474vw;
+
+                transform: translateY(-50%);
+              }
             }
+
+            @include screen.mobile {
+              padding-left: 4.6052631579vw;
+              margin: 3.2894736842vw 0;
+              margin-left: 3.9473684211vw;
+            }
+          }
+        }
+      }
+
+      .onlineOnMobile {
+        display: none;
+        justify-content: space-between;
+        margin-top: 2.6315789474vw;
+        padding: 4.7368421053vw 5.7894736842vw 0;
+        width: 78.9473684211vw;
+        height: 18.9473684211vw;
+        background-color: rgba(204, 204, 161, 0.5);
+        border-radius: 0.6578947368vw;
+
+        @include screen.mobile {
+          display: flex;
+        }
+
+        .onlineIcon {
+          flex-shrink: 0;
+
+          display: block;
+          width: 22.6315789474vw;
+          height: 11.8421052632vw;
+          background: url(../../_images/m/product/img-online.png) no-repeat center / cover;
+
+          position: relative;
+          top: -1.3157894737vw;
+          margin-right: 3.0263157895vw;
+
+          overflow: hidden;
+          text-indent: -9999%;
+        }
+
+        .onlineText {
+          display: block;
+          font-size: 2.3684210526vw;
+          line-height: 1.33;
+          letter-spacing: 0.04em;
+          font-weight: 900;
+
+          > a {
+            color: inherit;
+            text-decoration: underline;
           }
         }
       }
@@ -226,13 +413,23 @@
     margin-top: 1.5625vw;
     text-align: center;
 
+    @include screen.mobile {
+      margin-top: 2.6315789474vw;
+    }
+
     .banner {
       display: inline-block;
       width: 48.75vw;
       height: 5.9027777778vw;
-      background: url(../../_images/product/img-banner.png) no-repeat center top / cover;
+      background: url(../../_images/pc/product/img-banner.png) no-repeat center top / cover;
 
       @include enterAnimations.upScale(':hover');
+
+      @include screen.mobile {
+        width: 79.0789473684vw;
+        height: 25vw;
+        background-image: url(../../_images/m/product/img-banner.png);
+      }
     }
   }
 }
