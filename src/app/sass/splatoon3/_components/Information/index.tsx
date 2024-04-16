@@ -2,7 +2,7 @@ import { createClassNamer } from '@/app/sass/splatoon3/_utils/class-namer/classN
 import style from './index.module.scss';
 import Image from 'next/image';
 
-import image from '@sass/splatoon3/_images/information/img-twitter.png';
+import image from '@sass/splatoon3/_images/pc/information/img-twitter.png';
 import Link from 'next/link';
 import { useVisible } from '@/app/sass/splatoon3/_hooks/useVisible';
 

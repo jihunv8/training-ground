@@ -1,27 +1,46 @@
 @use '../../_styles/enterAnimations';
+@use '../../_styles/screen';
 
 .wrapper {
   margin-top: -7.7083333333vw;
   padding-top: 7.03125vw;
   height: 54.375vw;
-  background: url(../../_images/information/bg.png) no-repeat center top / cover;
+  background: url(../../_images/pc/information/bg.png) no-repeat center top / cover;
 
   position: relative;
   z-index: 0;
+
+  @include screen.mobile {
+    margin-top: -25vw;
+    padding-top: 25.5263157895vw;
+    height: 205.9210526316vw;
+    background-image: url(../../_images/m/information/bg.png);
+  }
 
   .title {
     margin-left: 24.1666666667vw;
     width: 44.5833333333vw;
     height: 8.7152777778vw;
-    background: url(../../_images/information/title.png) no-repeat center top / cover;
+    background: url(../../_images/pc/information/title.png) no-repeat center top / cover;
 
     @include enterAnimations.upFade('.visible');
+
+    @include screen.mobile {
+      margin-left: 2.2368421053vw;
+      width: 91.1842105263vw;
+      height: 22.6315789474vw;
+      background-image: url(../../_images/m/information/title.png);
+    }
   }
 
   .contents {
     margin-top: 3.125vw;
     display: flex;
     justify-content: center;
+
+    @include screen.mobile {
+      margin-top: 8.6842105263vw;
+    }
 
     .item {
       display: flex;
@@ -30,6 +49,13 @@
       height: 16.5vw;
       border: solid 1px rgba(255, 255, 255, 0.7);
 
+      @include screen.mobile {
+        flex-direction: column;
+        padding: 4.6052631579vw 4.6052631579vw 16.4473684211vw;
+        width: 75vw;
+        height: 80vw;
+      }
+
       .itemImage {
         flex-shrink: 0;
         width: 25.8854166667vw;
@@ -37,6 +63,12 @@
         border-radius: 1.0416666667vw;
 
         overflow: hidden;
+
+        @include screen.mobile {
+          width: 100%;
+          height: 42.8947368421vw;
+          border-radius: 2.6315789474vw;
+        }
 
         > img {
           width: 100%;
@@ -50,12 +82,21 @@
       .itemBody {
         margin-left: 1.9791666667vw;
         padding-top: 1.1458333333vw;
+
+        @include screen.mobile {
+          padding-top: 3.9473684211vw;
+        }
+
         .itemDate {
           font-size: 1.4583333333vw;
           line-height: 1;
           letter-spacing: 0.02em;
           color: #fff;
           font-weight: 900;
+
+          @include screen.mobile {
+            font-size: 5.2631578947vw;
+          }
         }
 
         .itemText {
@@ -68,8 +109,10 @@
           letter-spacing: 0.02em;
           word-break: break-word;
 
-          // display: -webkit-box;
-          // overflow: hidden;
+          @include screen.mobile {
+            margin-top: 2.8947368421vw;
+            font-size: 2.6315789474vw;
+          }
         }
       }
     }
@@ -82,16 +125,30 @@
 
     @include enterAnimations.upFade('.visible');
 
+    @include screen.mobile {
+      margin-top: 8.9473684211vw;
+    }
+
     > a {
       display: inline-block;
       width: 59.47916667vw;
       height: 8.75vw;
-      background: url(../../_images/information/btn-twitter.png) no-repeat center / cover;
+      background: url(../../_images/pc/information/btn-twitter.png) no-repeat center / cover;
 
       overflow: hidden;
       text-indent: -9999%;
 
-      @include enterAnimations.upScale(':hover');
+      @include enterAnimations.upScale(':hover') {
+        @include screen.mobile {
+          transform: none;
+        }
+      }
+
+      @include screen.mobile {
+        width: 86.7105263158vw;
+        height: 20.2631578947vw;
+        background-image: url(../../_images/m/information/btn-twitter.png);
+      }
     }
   }
 }
