@@ -7,8 +7,6 @@ const namer = createClassNamer(style);
 
 export default function Menu() {
   const [title, subtitle] = useVisible(2, { threshold: 0.5 });
-  console.log(title.isVisible);
-  console.log(subtitle.isVisible);
 
   return (
     <section className={namer('wrapper')}>
