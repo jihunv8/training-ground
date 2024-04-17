@@ -1,8 +1,5 @@
 'use client';
 
-import { Noto_Sans_KR } from 'next/font/google';
-
-import './_styles/global.scss';
 import style from './page.module.scss';
 import { useEffect } from 'react';
 
@@ -20,12 +17,6 @@ import Information from '@/app/sass/splatoon3/_components/Information';
 import Product from '@/app/sass/splatoon3/_components/Product';
 import Footer from '@/app/sass/splatoon3/_components/Footer';
 
-const NotoSansKR = Noto_Sans_KR({
-  weight: ['400', '700', '900'],
-  style: ['normal'],
-  subsets: ['latin'],
-});
-
 export default function Page() {
   useEffect(() => {
     if ('scrollRestoration' in window.history) {
@@ -37,7 +28,7 @@ export default function Page() {
     };
   }, []);
   return (
-    <div className={`${style.wrapper} ${NotoSansKR.className}`}>
+    <div className={style.wrapper}>
       <Poster />
       <News />
       <MovieCarousel />

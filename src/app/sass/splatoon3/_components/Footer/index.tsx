@@ -1,17 +1,18 @@
 import Link from 'next/link';
 import style from './index.module.scss';
 import { createClassNamer } from '@/app/sass/splatoon3/_utils/class-namer/classNamer';
+import { URLS } from '@/app/sass/splatoon3/_src/urls';
 
 const namer = createClassNamer(style);
 
 const menuItemInfos = [
-  { name: 'Battle', href: 'temp' },
-  { name: 'Customize', href: 'temp' },
-  { name: 'World', href: 'temp' },
-  { name: 'Heromode', href: 'temp' },
-  { name: 'Coop', href: 'temp' },
-  { name: 'Fes', href: 'temp' },
-  { name: 'Movie', href: 'temp' },
+  { name: 'Battle', href: URLS.NOT_IMPLEMENTED },
+  { name: 'Customize', href: URLS.NOT_IMPLEMENTED },
+  { name: 'World', href: URLS.NOT_IMPLEMENTED },
+  { name: 'Heromode', href: URLS.NOT_IMPLEMENTED },
+  { name: 'Coop', href: URLS.NOT_IMPLEMENTED },
+  { name: 'Fes', href: URLS.NOT_IMPLEMENTED },
+  { name: 'Movie', href: URLS.NOT_IMPLEMENTED },
 ];
 
 export default function Footer() {
@@ -25,7 +26,7 @@ export default function Footer() {
 
         <ul className={namer('menuList')}>
           <li className={namer('itemLogo')}>
-            <Link className={namer('itemLink')} href="/temp">
+            <Link className={namer('itemLink')} href={URLS.ROOT}>
               <div className={namer('logo')}>splatoon3</div>
             </Link>
           </li>
@@ -44,10 +45,10 @@ export default function Footer() {
       <div className={namer('bottom')}>
         <ul className={namer('linkList')}>
           <li className={namer('link')}>
-            <Link href="temp">닌텐도 홈페이지</Link>
+            <Link href={URLS.NOT_IMPLEMENTED}>닌텐도 홈페이지</Link>
           </li>
           <li className={namer('link')}>
-            <Link href="temp">Nintendo Switch 소프트웨어</Link>
+            <Link href={URLS.NOT_IMPLEMENTED}>Nintendo Switch 소프트웨어</Link>
           </li>
         </ul>
         <p>© Nintendo</p>

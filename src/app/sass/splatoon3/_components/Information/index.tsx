@@ -5,6 +5,7 @@ import Image from 'next/image';
 import image from '@sass/splatoon3/_images/pc/information/img-twitter.png';
 import Link from 'next/link';
 import { useVisible } from '@/app/sass/splatoon3/_hooks/useVisible';
+import { URLS } from '@/app/sass/splatoon3/_src/urls';
 
 const namer = createClassNamer(style);
 
@@ -29,7 +30,7 @@ export default function Information() {
         </li>
       </ul>
       <div ref={footer.ref} data-visible-id={footer.id} className={namer('footer', footer.isVisible && 'visible')}>
-        <Link href="temp">스플래툰 3의 최신 정보는 한국닌텐도 공식 트위터 계정에서</Link>
+        <Link href={URLS.NOT_IMPLEMENTED}>스플래툰 3의 최신 정보는 한국닌텐도 공식 트위터 계정에서</Link>
       </div>
     </section>
   );

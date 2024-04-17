@@ -10,6 +10,7 @@ import { getBanners } from '@/app/sass/splatoon3/_components/News/tempDB';
 import { getImageProps } from 'next/image';
 
 import BulletinBoard from '@sass/splatoon3/_components/News/BulletinBoard';
+import { URLS } from '@/app/sass/splatoon3/_src/urls';
 
 const namer = createClassNamer(style);
 
@@ -28,7 +29,7 @@ export default function News() {
           <Link
             ref={forBeginnerVisible.ref}
             data-visible-id={forBeginnerVisible.id}
-            href="/temp"
+            href={URLS.NOT_IMPLEMENTED}
             className={namer('banner forBeginner', forBeginnerVisible.isVisible && 'visible')}
           ></Link>
         </div>
@@ -55,7 +56,7 @@ export default function News() {
           })}
         </ul>
         <div className={namer('bannersFoot')}>
-          <Link href="/temp" className={namer('bigBanner')}></Link>
+          <Link href={URLS.NOT_IMPLEMENTED} className={namer('bigBanner')}></Link>
         </div>
       </section>
     </section>

@@ -18,13 +18,13 @@ export default function BulletinBoard() {
     <div ref={visible.ref} data-visible-id={visible.id} className={namer('wrapper', visible.isVisible && 'visible')}>
       <div className={namer('body')}>
         <ul className={namer('bulletinList')}>
-          {bulletins.map(({ id, date, title }) => {
+          {bulletins.map(({ id, date, title, href }) => {
             return (
               <li key={id} className={namer('bulletinItem')}>
                 <div className={namer('date')}>
                   <DateViewer date={date} />
                 </div>
-                <Link href="temp">{title}</Link>
+                <Link href={href}>{title}</Link>
               </li>
             );
           })}

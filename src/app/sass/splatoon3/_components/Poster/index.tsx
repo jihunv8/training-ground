@@ -4,6 +4,7 @@ import style from './index.module.scss';
 import Link from 'next/link';
 
 import { useState, useEffect } from 'react';
+import { URLS } from '@/app/sass/splatoon3/_src/urls';
 
 const namer = createClassNamer(style);
 
@@ -18,7 +19,7 @@ export default function Poster() {
     <section className={namer('wrapper', isMount && 'isShow')}>
       <div className={namer('kvWrapper')}>
         <div className={namer('kv', isMount && 'visible')}></div>
-        <Link className={namer('switchLogo')} href="/sass/splatoon3/a"></Link>
+        <Link className={namer('switchLogo')} href={URLS.NOT_IMPLEMENTED}></Link>
       </div>
       <div className={namer('head')}>
         <h1>

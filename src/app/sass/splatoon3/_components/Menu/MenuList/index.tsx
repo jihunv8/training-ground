@@ -1,21 +1,22 @@
 import style from './index.module.scss';
 import { createClassNamer } from '@sass/splatoon3/_utils/class-namer/classNamer';
 import MenuListItem from '@/app/sass/splatoon3/_components/Menu/MenuList/MenuListItem';
+import { URLS } from '@/app/sass/splatoon3/_src/urls';
 
 const namer = createClassNamer(style);
 
 export type MenuItemName = 'battle' | 'weapon' | 'world' | 'hero' | 'salmon' | 'fes' | 'amiibo' | 'app' | 'lab';
 
 const menuItems: { name: MenuItemName; href: string }[] = [
-  { name: 'battle', href: 'temp' },
-  { name: 'weapon', href: 'temp' },
-  { name: 'world', href: 'temp' },
-  { name: 'hero', href: 'temp' },
-  { name: 'salmon', href: 'temp' },
-  { name: 'fes', href: 'temp' },
-  { name: 'amiibo', href: 'temp' },
-  { name: 'app', href: 'temp' },
-  { name: 'lab', href: 'temp' },
+  { name: 'battle', href: URLS.NOT_IMPLEMENTED },
+  { name: 'weapon', href: URLS.NOT_IMPLEMENTED },
+  { name: 'world', href: URLS.NOT_IMPLEMENTED },
+  { name: 'hero', href: URLS.NOT_IMPLEMENTED },
+  { name: 'salmon', href: URLS.NOT_IMPLEMENTED },
+  { name: 'fes', href: URLS.NOT_IMPLEMENTED },
+  { name: 'amiibo', href: URLS.NOT_IMPLEMENTED },
+  { name: 'app', href: URLS.NOT_IMPLEMENTED },
+  { name: 'lab', href: URLS.NOT_IMPLEMENTED },
 ];
 
 export default function MenuList() {

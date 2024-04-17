@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import style from './index.module.scss';
 import { createClassNamer } from '@/app/sass/splatoon3/_utils/class-namer/classNamer';
+import { URLS } from '@/app/sass/splatoon3/_src/urls';
 
 const namer = createClassNamer(style);
 
@@ -24,40 +25,42 @@ export default function Product() {
               </span>
             </div>
             <div className={namer('etcLink')}>
-              <Link href="temp" className={namer('amiibo')}></Link>
+              <Link href={URLS.NOT_IMPLEMENTED} className={namer('amiibo')}></Link>
             </div>
           </div>
           <div className={namer('online')}>
-            <Link href="temp" className={namer('onlineIcon')}>
+            <Link href={URLS.NOT_IMPLEMENTED} className={namer('onlineIcon')}>
               online
             </Link>
             <p className={namer('onlineText')}>
-              온라인 플레이를 이용하려면, <Link href="temp">「Nintendo Switch Online」</Link> 가입이 필요합니다 (유료).
+              온라인 플레이를 이용하려면, <Link href={URLS.NOT_IMPLEMENTED}>「Nintendo Switch Online」</Link> 가입이
+              필요합니다 (유료).
             </p>
           </div>
         </div>
         <div className={namer('links')}>
-          <Link href="temp" className={namer('link', 'buy')}>
+          <Link href={URLS.NOT_IMPLEMENTED} className={namer('link', 'buy')}>
             구입
           </Link>
-          <Link href="temp" className={namer('link', 'productInfo')}>
+          <Link href={URLS.NOT_IMPLEMENTED} className={namer('link', 'productInfo')}>
             상품 정보
           </Link>
-          <Link href="temp" className={namer('link', 'playInfo')}>
+          <Link href={URLS.NOT_IMPLEMENTED} className={namer('link', 'playInfo')}>
             <span>플레이 인원수・컨트롤러</span>
           </Link>
           <div className={namer('onlineOnMobile')}>
-            <Link href="temp" className={namer('onlineIcon')}>
+            <Link href={URLS.NOT_IMPLEMENTED} className={namer('onlineIcon')}>
               online
             </Link>
             <p className={namer('onlineText')}>
-              온라인 플레이를 이용하려면, <Link href="temp">「Nintendo Switch Online」</Link> 가입이 필요합니다 (유료).
+              온라인 플레이를 이용하려면, <Link href={URLS.NOT_IMPLEMENTED}>「Nintendo Switch Online」</Link> 가입이
+              필요합니다 (유료).
             </p>
           </div>
         </div>
       </div>
       <div className={namer('footer')}>
-        <Link href="temp" className={namer('banner')}></Link>
+        <Link href={URLS.NOT_IMPLEMENTED} className={namer('banner')}></Link>
       </div>
     </section>
   );
