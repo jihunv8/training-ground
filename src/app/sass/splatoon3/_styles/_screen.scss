@@ -9,3 +9,9 @@
     @content;
   }
 }
+
+@mixin notMobile {
+  @media screen and (min-width: 760px) {
+    @content;
+  }
+}

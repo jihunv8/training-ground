@@ -40,17 +40,16 @@ export default function Footer() {
         </div>
         <div className={namer('bg')}></div>
 
-        <ul className={namer('list')}>
-          <li className={namer('item', 'itemTop')}>
-            <Link href="/temp">
-              <Image className={namer('notHover')} src={logoImage} alt="logo" />
+        <ul className={namer('menuList')}>
+          <li className={namer('itemLogo')}>
+            <Link className={namer('itemLink')} href="/temp">
+              <div className={namer('logo')}>splatoon3</div>
             </Link>
           </li>
           {menuItemInfos.map((item) => (
-            <li key={item.name} className={namer('item', `item${item.name}`)}>
-              <Link href={item.href}>
-                <Image src={item.img} alt={item.name} />
-                <Image className={namer('onImage')} src={item.imgOn} alt={`${item.name}-On`} />
+            <li key={item.name} className={namer('itemMenu', `item${item.name}`)}>
+              <Link className={namer('menuLink')} href={item.href}>
+                <div className={namer('text')}>{item.name}</div>
               </Link>
             </li>
           ))}
