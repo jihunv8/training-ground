@@ -5,7 +5,7 @@ import { createClassNamer } from '@/app/sass/splatoon3/_utils/class-namer/classN
 const namer = createClassNamer(style);
 
 export default function BattleStyle() {
-  const [wrapper] = useVisible(3, { isPersistent: true });
+  const [wrapper] = useVisible(1, { isPersistent: true });
   const [mainView, weapon, gear] = useVisible(3, { threshold: 0.5, isPersistent: true });
 
   const isViewerFixed = wrapper.isVisible;
