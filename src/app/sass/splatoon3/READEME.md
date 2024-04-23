@@ -113,7 +113,7 @@ const [box1Slot] = useVisible(1);
 
 #### ink
 
-![애니메이션 git]()
+![ink](https://github.com/jihunv8/training-ground/assets/78804014/50c277ac-3545-4913-947d-610b0d9d0e07)
 
 ```scss
 /* 커진상태에서 시작하여 작아졌다 원래 크기로 돌아옴 */
@@ -135,7 +135,8 @@ const [box1Slot] = useVisible(1);
 
 #### upScaleFadeOutBack
 
-![애니메이션 git]()
+![upScaleFadeOutBack](https://github.com/jihunv8/training-ground/assets/78804014/2edad197-c89f-4d79-ac47-28cf8d0aa513)
+
 
 ```scss
 /* 서서히 드러나며 작은상태에서 커졌다가 원래크기로 돌아옴 */
@@ -154,9 +155,14 @@ const [box1Slot] = useVisible(1);
 }
 ```
 
+### upFade
+
+![upFade](https://github.com/jihunv8/training-ground/assets/78804014/a556980e-c547-41c9-b3f1-d015c0076d63)
+
 #### bandLeftToRight
 
-![애니메이션 git]()
+![band-l-to-r](https://github.com/jihunv8/training-ground/assets/78804014/ed5d3b0b-eafc-4da8-be50-cdd478f4d53f)
+
 
 ```scss
 /* 왼쪽에서 오른쪽으로 이동 */
@@ -177,9 +183,11 @@ const [box1Slot] = useVisible(1);
 
 <br/>
 
-### 스크롤 화면전환 그거
+### 스크롤시 화면전환
 
-BattleStyle 섹션에 스크롤에서 따른 화면 변화를 구현했습니다.
+BattleStyle 섹션에서 스크롤에 따른 화면 변화를 구현했습니다.
+
+![스크롤시-화면전환](https://github.com/jihunv8/training-ground/assets/78804014/920bae6c-832c-423d-97df-aab883aad175)
 
 원본 홈페이지에서 구조를 분석한뒤 아이디어를 얻었습니다.
 
@@ -191,7 +199,7 @@ viewer는 화면에 고정되어 있고 triggerSection은 스크롤이 되지만
 viewer는 내부의 각 view는 triggerSection 내부의 각 trigger와 1대1로 연관되어 있습니다.
 스크롤되어 trigger가 뷰포트 영역 안으로 들어오면 연관된 view가 화면에 표시됩니다.
 
-![ 조금 투명한 뷰 뒤로 트리거 요소가 스크롤 되는 모습이 보이는 Gif ]()
+![ezgif-4-1f4d2272b5](https://github.com/jihunv8/training-ground/assets/78804014/445cda35-9375-4913-bb62-e8590861c1e4)
 
 ```tsx
 const [wrapperSlot] = useVisible(1);
