@@ -1,6 +1,18 @@
 import { useIntersectionObserver } from '@/app/sass/splatoon3/_hooks/useIntersectionObserver';
 import { RefCallback, useState } from 'react';
 
+const useVisibleTable = (length: number) => {
+  const initTable = new Array<boolean>(length);
+  initTable.fill(false);
+  return useState<boolean[]>(initTable);
+};
+
+type VisibleSlot<T> = {
+  id: number;
+  isVisible: boolean;
+  ref: RefCallback<T>;
+};
+
 /**
  * 요소가 화면에 표시되는 시점을 감지하는 hook입니다.
  * @param length 감지할 요소의 수 입니다.
@@ -9,13 +21,11 @@ import { RefCallback, useState } from 'react';
 
 export const useVisible = <T extends HTMLElement = HTMLElement>(
   length: number,
-  options?: { threshold?: number | [number, number]; isPersistent?: boolean; isActiveHide?: boolean },
-) => {
+  options?: { threshold?: number | [number, number]; isPersistent?: boolean },
+): VisibleSlot<T>[] => {
   const isPersistent = options?.isPersistent || false;
-  const initTable = new Array<boolean>(length);
-  initTable.fill(false);
 
-  const [visibleTable, setVisibleTable] = useState<boolean[]>(initTable);
+  const [visibleTable, setVisibleTable] = useVisibleTable(length);
 
   const handle: IntersectionObserverCallback = (entries, observer) => {
     entries.forEach((entry) => {

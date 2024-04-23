@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 import image from '@sass/splatoon3/_images/pc/information/img-twitter.png';
 import Link from 'next/link';
-import { useVisible } from '@/app/sass/splatoon3/_hooks/useVisible';
+import { useVisible } from '@/app/sass/splatoon3/_utils/visible/useVisible';
 import { URLS } from '@/app/sass/splatoon3/_src/urls';
 
 const namer = createClassNamer(style);

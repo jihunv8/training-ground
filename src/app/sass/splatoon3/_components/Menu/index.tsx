@@ -1,7 +1,7 @@
 import style from './index.module.scss';
 import { createClassNamer } from '@sass/splatoon3/_utils/class-namer/classNamer';
 import MenuList from '@/app/sass/splatoon3/_components/Menu/MenuList';
-import { useVisible } from '@/app/sass/splatoon3/_hooks/useVisible';
+import { useVisible } from '@/app/sass/splatoon3/_utils/visible/useVisible';
 
 const namer = createClassNamer(style);
 

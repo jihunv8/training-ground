@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import style from './index.module.scss';
-import { useVisible } from '@/app/sass/splatoon3/_hooks/useVisible';
+import { useVisible } from '@/app/sass/splatoon3/_utils/visible/useVisible';
 import { createClassNamer } from '@/app/sass/splatoon3/_utils/class-namer/classNamer';
 
 import { getBanners } from '@/app/sass/splatoon3/_components/News/tempDB';

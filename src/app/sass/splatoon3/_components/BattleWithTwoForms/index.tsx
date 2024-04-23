@@ -1,6 +1,6 @@
 import style from './index.module.scss';
 import { createClassNamer } from '@/app/sass/splatoon3/_utils/class-namer/classNamer';
-import { useVisible } from '@/app/sass/splatoon3/_hooks/useVisible';
+import { useVisible } from '@/app/sass/splatoon3/_utils/visible/useVisible';
 import { useInnerWidth } from '@/app/sass/splatoon3/_hooks/useInnerWidth';
 
 const namer = createClassNamer(style);
