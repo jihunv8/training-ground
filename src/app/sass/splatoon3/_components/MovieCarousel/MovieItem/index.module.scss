@@ -1,8 +1,6 @@
 @use '../../../_styles/screen';
 
 .wrapper {
-  --itemWidth: 0;
-
   width: var(--itemWidth);
   flex-shrink: 0;
 

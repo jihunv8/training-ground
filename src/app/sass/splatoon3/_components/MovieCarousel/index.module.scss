@@ -16,17 +16,22 @@
     top: 9.21875vw;
     z-index: 2;
 
+    --currentIndex: 0;
     --itemWidth: calc(100vw / 4);
 
     @include screen.mobile {
       top: 30.3947368421vw;
-
-      --itemwidth: calc(100vw / 2);
+      --itemWidth: calc(100vw / 1.3);
     }
 
     > ul {
-      --half: calc(100vw / 2 - (var(--itemWidth) / 2));
-      transform: translate3d(var(--half), 0px, 0px);
+      --halfOfScreen: calc(100vw / 2);
+      --halfOfItem: calc(var(--itemWidth) / 2);
+      --startX: calc(var(--halfOfScreen) - var(--halfOfItem));
+      --offsetX: calc(var(--itemWidth) * var(--currentIndex));
+      --positionX: calc(var(--startX) - var(--offsetX));
+
+      transform: translate3d(var(--positionX), 0px, 0px);
       transition: transform 0.3s;
       display: flex;
     }

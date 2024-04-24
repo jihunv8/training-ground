@@ -9,13 +9,12 @@ type MovieItemProps = {
   thumbnail: string | StaticImageData;
   href: string;
   title: string;
-  width: number;
   current?: boolean;
 };
 
-export default function MovieItem({ thumbnail, href, title, width, current = false }: MovieItemProps) {
+export default function MovieItem({ thumbnail, href, title, current = false }: MovieItemProps) {
   return (
-    <li className={namer('wrapper')} style={{ '--itemWidth': `${width}px` } as React.CSSProperties}>
+    <li className={namer('wrapper')}>
       <Link href={href} className={namer('movieLink')}>
         <div className={namer('movieThumbnail')}>
           <Image src={thumbnail} alt={'thumbnail'} />
