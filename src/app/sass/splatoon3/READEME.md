@@ -251,7 +251,7 @@ const [view1Slot, view2Slot, view3Slot] = useVisible(3, { threshold: 0.5 });
 
 MovieCarousel 섹션에서 이미지 캐러셀 기능을 구현했습니다.
 
-![이미지 캐러셀 gif]()
+![이미지 캐러셀](https://github.com/jihunv8/training-ground/assets/78804014/670d052c-4a6b-47f3-bf93-833a4b4aa44d)
 
 ```scss
 .carousel {
