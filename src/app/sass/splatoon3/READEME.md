@@ -28,7 +28,7 @@ SCSS, Next.js, Typescript
 
 ### useVisible
 
-[`useVisible`](useVisible코드파일경로)은 요소가 뷰포트 영역 안으로 들어왔는지 여부를 확인하는 커스텀 훅 입니다.
+[`useVisible`](https://github.com/jihunv8/training-ground/blob/main/src/app/sass/splatoon3/_utils/visible/useVisible.ts)은 요소가 뷰포트 영역 안으로 들어왔는지 여부를 확인하는 커스텀 훅 입니다.
 
 사용할 슬롯의 수를 인수로 전달합니다.
 그리고 두번째 인수로 옵션객체를 전달할 수도 있습니다.
@@ -240,6 +240,7 @@ const [view1Slot, view2Slot, view3Slot] = useVisible(3, { threshold: 0.5 });
 
 아래의 영상은 `viewer`뒤로(opacity 속성 적용됨) `trigerSection`이 어떻게 움직이는지 보여줍니다.<br/>
 `triger`(보라색 벼경에 하얀색 점선 태두리)가 스크롤되어 뷰포트 안으로 50%(옵션 threshold: 0.5이 적용됨)만큼 들어오면 연관된 `view`가 화면에 나타납니다.
+
 ![ezgif-4-1f4d2272b5](https://github.com/jihunv8/training-ground/assets/78804014/445cda35-9375-4913-bb62-e8590861c1e4)
 
 ---
@@ -312,7 +313,7 @@ SCSS모듈을 사용하여 `className`을 지정할 때 모듈의 이름(예: st
 <div className={namer('box fruitBox applBox', isVisible && 'visible')}></div>
 ```
 
-[class-namer](class-namer코드파일경로)는 `createClassNamer`함수로 생성합니다.
+[class-namer](https://github.com/jihunv8/training-ground/blob/main/src/app/sass/splatoon3/_utils/class-namer/classNamer.ts)는 `createClassNamer`함수로 생성합니다.
 SCSS모듈을 인수로 전달하여 호출합니다.
 
 ```tsx
