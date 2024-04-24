@@ -76,7 +76,7 @@ const [slot] = useVisible(1);
 
 ### EnterAnimation
 
-요소가 화면에 표시될 때 발생하는 애니메이션을 모아둔 SCSS모듈입니다. [모듈 위치]()
+요소가 화면에 표시될 때 발생하는 애니메이션을 모아둔 [SCSS모듈](https://github.com/jihunv8/training-ground/blob/main/src/app/sass/splatoon3/_styles/_enterAnimations.scss)입니다.
 
 애니메이션의 구조는 다음과 같습니다.
 
