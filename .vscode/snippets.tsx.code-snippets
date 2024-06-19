@@ -1,0 +1,36 @@
+{
+  "Next Default Component": {
+    "prefix": "ndc",
+    "body": ["export default function ${1:Name}() {", "  return <${2:div}}>${3}</${2:div}>", "}"],
+    "description": "Next Default Component",
+  },
+
+  "Next Scss Component": {
+    "prefix": "nscss",
+    "body": [
+      "import style from './index.module.scss';",
+      "import { createClassNamer } from '@/utils/class-namer';",
+      "",
+      "const namer = createClassNamer(style);",
+      "",
+      "export default function ${1:Name}() {",
+      "  return <${2:div} className={namer('wrapper')}>${3}</${2:div}>",
+      "}",
+    ],
+    "description": "Next Scss Component",
+  },
+
+  "Next Styled Component": {
+    "prefix": "nsc",
+    "body": [
+      "import styled from 'styled-components';",
+      "",
+      "const Wrapper = styled.${2:div}``;",
+      "",
+      "export default function ${1:Name}() {",
+      "  return <Wrapper>${3}</Wrapper>",
+      "}",
+    ],
+    "description": "Next Styled Component",
+  },
+}
