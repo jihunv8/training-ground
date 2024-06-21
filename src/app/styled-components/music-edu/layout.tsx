@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Spatoon 3',
+  title: 'Music Education',
 };
 
 export default function Layout({
