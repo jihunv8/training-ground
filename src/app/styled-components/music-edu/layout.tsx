@@ -1,3 +1,4 @@
+import StyledComponentsRegistry from '@/app/styled-components/_lib/setting/registry';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -9,5 +10,5 @@ export default function Layout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <>{children}</>;
+  return <StyledComponentsRegistry>{children}</StyledComponentsRegistry>;
 }
