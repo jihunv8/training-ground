@@ -26,7 +26,7 @@ export default function Layout({
   return (
     <html lang="ko">
       <body className={notoSansKr.className}>
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>;
+        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
       </body>
     </html>
   );
