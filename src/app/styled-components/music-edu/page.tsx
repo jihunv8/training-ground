@@ -15,7 +15,6 @@ import Section6 from '@/app/styled-components/music-edu/_components/Section6';
 import Section7 from '@/app/styled-components/music-edu/_components/Section7';
 import Section8 from '@/app/styled-components/music-edu/_components/Section8';
 import Section9 from '@/app/styled-components/music-edu/_components/Section9';
-const Wrapper = styled.div``;
 
 export default function Page() {
   return (
@@ -37,3 +36,5 @@ export default function Page() {
     </ThemeProvider>
   );
 }
+
+const Wrapper = styled.main``;

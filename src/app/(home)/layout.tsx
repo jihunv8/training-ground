@@ -1,8 +1,12 @@
 import type { Metadata } from 'next';
+import favicon from './favicon.ico';
 
 export const metadata: Metadata = {
   title: 'Training Ground',
   description: 'This is training ground!',
+  icons: {
+    icon: favicon.src,
+  },
 };
 
 export default function RootLayout({
@@ -12,9 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body>
-        <main>{children}</main>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

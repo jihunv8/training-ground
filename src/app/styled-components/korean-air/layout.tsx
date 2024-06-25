@@ -1,7 +1,8 @@
 import StyledComponentsRegistry from '@/app/styled-components/_lib/setting/registry';
-import type { Metadata } from 'next';
-
 import { Noto_Sans_KR } from 'next/font/google';
+import favicon from './favicon.ico';
+
+import type { Metadata } from 'next';
 
 const notoSansKr = Noto_Sans_KR({
   weight: ['400', '700'],
@@ -12,6 +13,9 @@ const notoSansKr = Noto_Sans_KR({
 
 export const metadata: Metadata = {
   title: '대한항공',
+  icons: {
+    icon: favicon.src,
+  },
 };
 
 export default function Layout({
@@ -20,8 +24,10 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   return (
-    <StyledComponentsRegistry>
-      <main className={notoSansKr.className}>{children}</main>;
-    </StyledComponentsRegistry>
+    <html lang="ko">
+      <body className={notoSansKr.className}>
+        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>;
+      </body>
+    </html>
   );
 }

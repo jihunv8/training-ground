@@ -28,7 +28,7 @@ export default function Page() {
     };
   }, []);
   return (
-    <div className={style.wrapper}>
+    <main className={style.wrapper}>
       <Poster />
       <News />
       <MovieCarousel />
@@ -42,6 +42,6 @@ export default function Page() {
       <Information />
       <Product />
       <Footer />
-    </div>
+    </main>
   );
 }

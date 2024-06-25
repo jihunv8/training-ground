@@ -17,7 +17,7 @@ const noticeBanners = mockNoticeBannerData;
 
 function Home() {
   return (
-    <HomeWrapper>
+    <Wrapper>
       <GlobalStyle />
       <Header />
       <Section1 />
@@ -31,13 +31,13 @@ function Home() {
       </NoticeBannerWrapper>
       <Section4 />
       <Footer />
-    </HomeWrapper>
+    </Wrapper>
   );
 }
 
 export default Home;
 
-const HomeWrapper = styled.div``;
+const Wrapper = styled.main``;
 
 const NoticeBannerWrapper = styled.div`
   margin: 60px auto 0;

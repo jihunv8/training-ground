@@ -26,4 +26,4 @@ export default function Page() {
   );
 }
 
-const Wrapper = styled.div``;
+const Wrapper = styled.main``;

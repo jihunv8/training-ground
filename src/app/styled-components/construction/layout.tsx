@@ -1,7 +1,9 @@
 import StyledComponentsRegistry from '@/app/styled-components/_lib/setting/registry';
-import type { Metadata } from 'next';
-
 import { Poppins } from 'next/font/google';
+
+import favicon from './favicon.ico';
+
+import type { Metadata } from 'next';
 
 const poppins = Poppins({
   weight: ['400', '500', '600', '700'],
@@ -12,6 +14,9 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: 'CONSTRUCTION',
+  icons: {
+    icon: favicon.src,
+  },
 };
 
 export default function Layout({
@@ -20,8 +25,10 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   return (
-    <StyledComponentsRegistry>
-      <main className={poppins.className}>{children}</main>;
-    </StyledComponentsRegistry>
+    <html lang="ko">
+      <body className={poppins.className}>
+        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+      </body>
+    </html>
   );
 }

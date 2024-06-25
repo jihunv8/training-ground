@@ -18,5 +18,9 @@ export default function Layout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <main className={NotoSansKR.className}>{children}</main>;
+  return (
+    <html lang="ko">
+      <body className={NotoSansKR.className}>{children}</body>
+    </html>
+  );
 }
