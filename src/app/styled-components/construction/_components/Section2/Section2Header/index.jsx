@@ -42,7 +42,6 @@ const Text = styled.p`
   margin-top: 30px;
   color: #6b6b6b;
   font-size: 1.25rem;
-  font-family: roboto, sans-serif;
   line-height: 1.75rem;
   text-align: center;
 
