@@ -1,4 +1,4 @@
-export function parseMoney(num) {
+export function parseMoney(num: number) {
   let money = String(num);
 
   for (let i = money.length - 3; i > 0; i -= 3) {
