@@ -10,7 +10,7 @@ import CommonButton from '../../../common/buttons/CommonButton.styled';
 
 function BlogCard({ title = '', text = '', bgUrl = '', readmoreBtn = false }) {
   return (
-    <BlogCardWrapper bg={bgUrl}>
+    <BlogCardWrapper $bgUrl={bgUrl}>
       <Title>{title}</Title>
       <Text>{text}</Text>
       {readmoreBtn && <ReadMoreButton>Read More</ReadMoreButton>}
@@ -20,11 +20,11 @@ function BlogCard({ title = '', text = '', bgUrl = '', readmoreBtn = false }) {
 
 export default BlogCard;
 
-const BlogCardWrapper = styled.div<{ bg: string }>`
+const BlogCardWrapper = styled.div<{ $bgUrl: string }>`
   width: 496px;
   height: 467px;
   padding-bottom: 60px;
-  background: url(${({ bg }) => bg}) no-repeat center / cover;
+  background: url(${({ $bgUrl }) => $bgUrl}) no-repeat center / cover;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;

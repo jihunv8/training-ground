@@ -4,7 +4,7 @@ import { screenSmall, screenXSmall } from '@/app/styled-components/construction/
 export default function CumulativeData({ data = '', dataName = '', shapeColor = '#FE8432' }) {
   return (
     <CumulativeDataWrapper>
-      <Shape shape-color={shapeColor} />
+      <Shape $shapeColor={shapeColor} />
       <Data>{data}</Data>
       <DataName>{dataName}</DataName>
     </CumulativeDataWrapper>
@@ -15,8 +15,8 @@ const CumulativeDataWrapper = styled.div`
   position: relative;
 `;
 
-const Shape = styled.div<{ 'shape-color': string }>`
-  background-color: ${(props) => props['shape-color']};
+const Shape = styled.div<{ $shapeColor: string }>`
+  background-color: ${({ $shapeColor }) => $shapeColor};
   width: 40px;
   height: 20px;
   border-radius: 20px 20px 0 0;

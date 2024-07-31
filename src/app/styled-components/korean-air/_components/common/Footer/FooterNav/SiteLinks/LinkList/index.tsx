@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import { useMediaQuery } from 'react-responsive';
 import { maxWidthLarge } from '@/app/styled-components/korean-air/_styles/mediaSize';
 
 import arrowDownIcon from '@/app/styled-components/korean-air/_images/icons/snb__title.svg';
 import arrowUpIcon from '@/app/styled-components/korean-air/_images/icons/snb__title--expand.svg';
 import { FooterSiteLinkGroup } from '../src/footerSiteLinksData';
+import { useResponsiveCheck } from '@/app/styled-components/korean-air/_utils/useResponsiveCheck';
 
 type LinkListProps = {
   data: FooterSiteLinkGroup;
@@ -13,7 +13,7 @@ type LinkListProps = {
 };
 
 function LinkList({ data, isExpanded = false, onToggle }: LinkListProps) {
-  const isLargeSize = useMediaQuery({ maxWidth: 1060 });
+  const isLargeSize = useResponsiveCheck('large');
 
   const { title, links } = data;
 
@@ -61,8 +61,8 @@ const Title = styled.h2`
 
 const TitleButton = styled.button<{ $dropdown: boolean }>`
   width: 100%;
-  background: transparent url(${({ $dropdown }) => ($dropdown ? arrowUpIcon : arrowDownIcon)}) no-repeat center right /
-    17px;
+  background: transparent url(${({ $dropdown }) => ($dropdown ? arrowUpIcon.src : arrowDownIcon.src)}) no-repeat center
+    right / 17px;
   border: none;
   padding: 14px 50px 14px 10px;
 

@@ -5,7 +5,7 @@ function NumberBox({ num = '', shapeColor = '' }) {
   return (
     <NumberBoxWrapper>
       <Number>{num}</Number>
-      <Shape shape-color={shapeColor} />
+      <Shape $shapeColor={shapeColor} />
     </NumberBoxWrapper>
   );
 }
@@ -42,8 +42,8 @@ const Number = styled.div`
   }
 `;
 
-const Shape = styled.div<{ 'shape-color': string }>`
-  background-color: ${(props) => props['shape-color']};
+const Shape = styled.div<{ $shapeColor: string }>`
+  background-color: ${({ $shapeColor }) => $shapeColor};
   width: 4.75rem;
   height: 4.75rem;
   border-radius: 0.3125rem 2.375rem;

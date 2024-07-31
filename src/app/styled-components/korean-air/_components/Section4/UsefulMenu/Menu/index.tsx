@@ -16,7 +16,7 @@ function Menu({ data }: MenuProps) {
   const { title, href, icon } = data;
   return (
     <MenuWrapper href={href}>
-      <Icon icon-url={getUrl(icon.src)} />
+      <Icon $iconUrl={getUrl(icon.src)} />
       <Title>{title}</Title>
     </MenuWrapper>
   );
@@ -35,8 +35,8 @@ const MenuWrapper = styled.a`
   }
 `;
 
-const Icon = styled.div<{ 'icon-url': string }>`
-  background: url(${(props) => props['icon-url']}) no-repeat center / 48px;
+const Icon = styled.div<{ $iconUrl: string }>`
+  background: url(${({ $iconUrl }) => $iconUrl}) no-repeat center / 48px;
   width: 48px;
   height: 48px;
 `;

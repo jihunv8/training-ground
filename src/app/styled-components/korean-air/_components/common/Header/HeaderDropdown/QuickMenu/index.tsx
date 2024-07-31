@@ -9,7 +9,7 @@ function QuickMenu() {
       <LinkList>
         {quick.links[0].map((link, i) => (
           <LinkListItem key={i}>
-            <Link iconurl={link.icon.src} href={link.href}>
+            <Link $iconUrl={link.icon.src} href={link.href}>
               {link.name}
             </Link>
           </LinkListItem>
@@ -18,7 +18,7 @@ function QuickMenu() {
       <ETCLinkList>
         {quick.links[1].map((link, i) => (
           <ETCLinkListItem key={i}>
-            <BasicLink iconurl={link.icon.src} href={link.href}>
+            <BasicLink $iconUrl={link.icon.src} href={link.href}>
               {link.name}
             </BasicLink>
           </ETCLinkListItem>
@@ -56,8 +56,8 @@ const LinkListItem = styled.li`
   }
 `;
 
-const BasicLink = styled.a<{ iconurl: string }>`
-  background: url(${({ iconurl }) => iconurl}) no-repeat center left / 24px;
+const BasicLink = styled.a<{ $iconUrl: string }>`
+  background: url(${({ $iconUrl }) => $iconUrl}) no-repeat center left / 24px;
   padding-left: 32px;
   line-height: 1.5;
 

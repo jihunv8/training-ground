@@ -7,6 +7,7 @@ import EngineerProfile from './EngineerProfile';
 import profileImage1 from '@/app/styled-components/construction/_images/profile-image1.png';
 import profileImage2 from '@/app/styled-components/construction/_images/profile-image2.png';
 import profileImage3 from '@/app/styled-components/construction/_images/profile-image3.png';
+import { useResponsiveCheck } from '@/app/styled-components/construction/_utils/useResponsiveCheck';
 
 const dummyData = [
   {
@@ -43,8 +44,8 @@ const dummyData = [
 ];
 
 function EngineersList({ profileDataList = dummyData }) {
-  const isScreenSmall = useMediaQuery({ query: `(max-width: ${screenSmall})` });
-  const isScreenXSmall = useMediaQuery({ query: `(max-width: ${screenXSmall})` });
+  const isScreenSmall = useResponsiveCheck('small');
+  const isScreenXSmall = useResponsiveCheck('xsmall');
 
   let displayNum = 3;
   if (isScreenSmall) displayNum = 2;

@@ -1,2 +1,0 @@
-'@/app/styled-components/orion/_styles/mediaSize';
-'@/app/styled-components/orion/_images

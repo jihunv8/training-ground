@@ -1,20 +1,21 @@
 export const maxContentsArea = '1280px';
 
-const screenSize = {
-  xLarge: '1440px',
-  large: '1060px',
-  middle: '900px',
-  small: '640px',
-  xSmall: '360px',
-};
+export const screenSize = {
+  xLarge: 1440,
+  large: 1060,
+  middle: 900,
+  small: 640,
+  xSmall: 360,
+} as const;
 
-export const screenLarge = screenSize.large;
-export const screenMiddle = screenSize.middle;
-export const screenSmall = screenSize.small;
-export const screenXSmall = screenSize.xSmall;
+export const screenXLarge = `${screenSize.xLarge}px`;
+export const screenLarge = `${screenSize.large}px`;
+export const screenMiddle = `${screenSize.middle}px`;
+export const screenSmall = `${screenSize.small}px`;
+export const screenXSmall = `${screenSize.xSmall}px`;
 
-export const maxWidthXLarge = `screen and (max-width: ${screenSize.xLarge})`;
-export const maxWidthLarge = `screen and (max-width: ${screenSize.large})`;
-export const maxWidthMiddle = `screen and (max-width: ${screenSize.middle})`;
-export const maxWidthSmall = `screen and (max-width: ${screenSize.small})`;
-export const maxWidthXSmall = `screen and (max-width: ${screenSize.xSmall})`;
+export const maxWidthXLarge = `screen and (max-width: ${screenXLarge})`;
+export const maxWidthLarge = `screen and (max-width: ${screenLarge})`;
+export const maxWidthMiddle = `screen and (max-width: ${screenMiddle})`;
+export const maxWidthSmall = `screen and (max-width: ${screenSmall})`;
+export const maxWidthXSmall = `screen and (max-width: ${screenXSmall})`;

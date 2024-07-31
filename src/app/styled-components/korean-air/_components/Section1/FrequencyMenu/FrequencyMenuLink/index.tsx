@@ -13,7 +13,7 @@ function FrequencyMenuLink({ href, children, iconUrl }: FrequencyMenuLinkProps) 
   return (
     <FrequencyMenuLinkWrapper>
       <Anchor href={href}>
-        <Icon iconurl={iconUrl} />
+        <Icon $iconUrl={iconUrl} />
         {children}
       </Anchor>
     </FrequencyMenuLinkWrapper>
@@ -26,8 +26,8 @@ const FrequencyMenuLinkWrapper = styled.div`
   width: 100%;
 `;
 
-const Icon = styled.span<{ iconurl: string }>`
-  background: url(${({ iconurl }) => iconurl}) no-repeat center / 48px;
+const Icon = styled.span<{ $iconUrl: string }>`
+  background: url(${({ $iconUrl }) => $iconUrl}) no-repeat center / 48px;
   display: block;
   width: 48px;
   height: 48px;

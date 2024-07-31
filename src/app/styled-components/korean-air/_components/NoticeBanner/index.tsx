@@ -12,7 +12,7 @@ function NoticeBanner({ data }: NoticeBannerProps) {
   const { title, subtitle, href, bgImage } = data;
   return (
     <NoticeBannerWrapper>
-      <Anchor href={href} bg-image={bgImage}>
+      <Anchor href={href} $bgImage={bgImage}>
         <Title>{title}</Title>
         <Subtitle>{subtitle}</Subtitle>
       </Anchor>
@@ -31,11 +31,11 @@ const getUrl = (src: string | StaticImageData) => {
   return src.src;
 };
 
-const Anchor = styled.a<{ 'bg-image': NoticeBannerDataBgImage }>`
+const Anchor = styled.a<{ $bgImage: NoticeBannerDataBgImage }>`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: url(${(props) => getUrl(props['bg-image'].pc.src)}) no-repeat right center / cover;
+  background: url(${({ $bgImage }) => getUrl($bgImage.pc.src)}) no-repeat right center / cover;
   max-width: ${maxContentsArea};
   height: 120px;
   padding: 30px 320px 34px 40px;
@@ -46,7 +46,7 @@ const Anchor = styled.a<{ 'bg-image': NoticeBannerDataBgImage }>`
   }
 
   @media ${maxWidthLarge} {
-    background-image: url(${(props) => getUrl(props['bg-image'].mobile.src)});
+    background-image: url(${({ $bgImage }) => getUrl($bgImage.mobile.src)});
     padding: 22px 100px 22px 24px;
   }
 `;

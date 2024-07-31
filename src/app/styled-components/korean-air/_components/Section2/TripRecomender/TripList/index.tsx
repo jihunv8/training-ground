@@ -37,7 +37,7 @@ export default function TripList() {
 
   return (
     <Wrapper>
-      <List index={currentIndex}>
+      <List $index={currentIndex}>
         {trips.map((trip, i) => {
           return (
             <ListItem key={i}>
@@ -58,14 +58,14 @@ const Wrapper = styled.div`
   position: relative;
 `;
 
-const List = styled.ul<{ index: number }>`
+const List = styled.ul<{ $index: number }>`
   width: 100%;
   display: flex;
-  transform: translateX(calc((232px + 30px) * -1 * ${({ index }) => index}));
+  transform: translateX(calc((232px + 30px) * -1 * ${({ $index }) => $index}));
   transition: transform 0.7s;
 
   @media ${maxWidthLarge} {
-    transform: translateX(calc(((100% - 8px) / 2 + 8px) * -1 * ${({ index }) => index}));
+    transform: translateX(calc(((100% - 8px) / 2 + 8px) * -1 * ${({ $index }) => $index}));
     width: 55%;
   }
 

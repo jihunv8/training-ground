@@ -59,6 +59,7 @@ const Logo = styled.h1`
 
   > a > img {
     width: 64px;
+    height: auto;
   }
 `;
 

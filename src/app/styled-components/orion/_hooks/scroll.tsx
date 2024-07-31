@@ -1,20 +1,21 @@
 import { useEffect, useState } from 'react';
 
-export const useIsScrollUp = (): boolean => {
-  let lastScrollY = window.scrollY;
-  const [isScrollUp, setIsScrollUp] = useState(true);
+export const useIsScrollUp = (init?: boolean): boolean => {
+  const [isScrollUp, setIsScrollUp] = useState(init || false);
 
   useEffect(() => {
-    const onScrollListener = (e: Event) => {
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = (e: Event) => {
       const isUp = window.scrollY < lastScrollY ? true : false;
       setIsScrollUp(isUp);
       lastScrollY = window.scrollY;
     };
 
-    window.addEventListener('scroll', onScrollListener);
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', onScrollListener);
+      window.removeEventListener('scroll', handleScroll);
     };
   });
 

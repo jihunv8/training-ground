@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import { useMediaQuery } from 'react-responsive';
 import * as media from '@/app/styled-components/korean-air/_styles/mediaSize';
 
 import koreanairLogoPC from '@/app/styled-components/korean-air/_images/logos/logo--koreanair-pc.png';
@@ -14,6 +13,7 @@ import hamburgerIcon from '@/app/styled-components/korean-air/_images/icons/draw
 import Image from 'next/image';
 
 import { HeaderMenuKey } from '../src/headerMenus';
+import { useResponsiveCheck } from '@/app/styled-components/korean-air/_utils/useResponsiveCheck';
 
 type HeaderNavProps = {
   selectedMenuKey: HeaderMenuKey | null;
@@ -21,7 +21,7 @@ type HeaderNavProps = {
 };
 
 function HeaderNav({ selectedMenuKey, onSelectMenu }: HeaderNavProps) {
-  const isTabletSize = useMediaQuery({ maxWidth: media.screenLarge });
+  const isTabletSize = useResponsiveCheck('large');
 
   const _onSelectMenu = (menuKey: HeaderMenuKey) => {
     return () => {
@@ -35,12 +35,12 @@ function HeaderNav({ selectedMenuKey, onSelectMenu }: HeaderNavProps) {
         <Logos>
           {isTabletSize ? (
             <a href="/">
-              <Image src={koreanairLogoM} alt="korean air logo" />
+              <Image src={koreanairLogoM} alt="korean air logo" priority />
             </a>
           ) : (
             <>
               <a href="/">
-                <Image src={koreanairLogoPC} alt="korean air logo" />
+                <Image src={koreanairLogoPC} alt="korean air logo" priority />
               </a>
 
               <a href="">
@@ -67,13 +67,13 @@ function HeaderNav({ selectedMenuKey, onSelectMenu }: HeaderNavProps) {
         )}
 
         <Menu>
-          <MenuItemLink href="" imgurl={loginIcon.src}></MenuItemLink>
-          <MenuItemButton imgurl={alramIcon.src}></MenuItemButton>
-          <MenuItemLink href="" imgurl={cartIcon.src}></MenuItemLink>
+          <MenuItemLink href="" $imgUrl={loginIcon.src}></MenuItemLink>
+          <MenuItemButton $imgUrl={alramIcon.src}></MenuItemButton>
+          <MenuItemLink href="" $imgUrl={cartIcon.src}></MenuItemLink>
           {isTabletSize ? (
-            <MenuItemButton imgurl={hamburgerIcon.src}></MenuItemButton>
+            <MenuItemButton $imgUrl={hamburgerIcon.src}></MenuItemButton>
           ) : (
-            <MenuItemButton imgurl={searchIcon.src}></MenuItemButton>
+            <MenuItemButton $imgUrl={searchIcon.src}></MenuItemButton>
           )}
         </Menu>
       </ContentsArea>
@@ -101,6 +101,7 @@ const Logos = styled.div`
 
   > a > img {
     display: block;
+    height: auto;
   }
 
   @media ${media.maxWidthLarge} {
@@ -173,10 +174,10 @@ const Menu = styled.div`
   }
 `;
 
-const MenuItemStyle = css<{ imgurl: string }>`
+const MenuItemStyle = css<{ $imgUrl: string }>`
   width: 44px;
   height: 44px;
-  background: url(${({ imgurl }) => imgurl}) no-repeat center / 44px;
+  background: url(${({ $imgUrl }) => $imgUrl}) no-repeat center / 44px;
   transition: background-size 0.15s;
 
   &:hover {
@@ -191,11 +192,11 @@ const MenuItemStyle = css<{ imgurl: string }>`
   }
 `;
 
-const MenuItemLink = styled.a<{ imgurl: string }>`
+const MenuItemLink = styled.a<{ $imgUrl: string }>`
   ${MenuItemStyle}
 `;
 
-const MenuItemButton = styled.button<{ imgurl: string }>`
+const MenuItemButton = styled.button<{ $imgUrl: string }>`
   background-color: transparent;
   border: none;
   ${MenuItemStyle}

@@ -13,7 +13,7 @@ import logoImage from '@/app/styled-components/orion/_images/logo.png';
 
 export default function Header() {
   const [isGnbMOn, setIsGnbMOn] = useState(false);
-  const isScrollUp = useIsScrollUp();
+  const isScrollUp = useIsScrollUp(true);
 
   const handleToggleMenu = () => {
     setIsGnbMOn((prev) => !prev);

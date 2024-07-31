@@ -13,14 +13,14 @@ export default function OhterLinks() {
   return (
     <Wrapper>
       <SNSLinkContainer>
-        <SNSLink icon={youtubeIcon.src} href="" />
-        <SNSLink icon={instagramIcon.src} href="" />
-        <SNSLink icon={facebookIcon.src} href="" />
-        <SNSLink icon={twitterIcon.src} href="" />
+        <SNSLink $iconUrl={youtubeIcon.src} href="" />
+        <SNSLink $iconUrl={instagramIcon.src} href="" />
+        <SNSLink $iconUrl={facebookIcon.src} href="" />
+        <SNSLink $iconUrl={twitterIcon.src} href="" />
       </SNSLinkContainer>
       <AppLinkContainer>
-        <AppLink icon={googleplayIcon.src} href="" />
-        <AppLink icon={appstore.src} href="" />
+        <AppLink $iconUrl={googleplayIcon.src} href="" />
+        <AppLink $iconUrl={appstore.src} href="" />
       </AppLinkContainer>
     </Wrapper>
   );
@@ -47,8 +47,8 @@ const SNSLinkContainer = styled.div`
   }
 `;
 
-const SNSLink = styled.a<{ icon: string }>`
-  background: url(${({ icon }) => icon}) no-repeat center / 44px;
+const SNSLink = styled.a<{ $iconUrl: string }>`
+  background: url(${({ $iconUrl }) => $iconUrl}) no-repeat center / 44px;
   width: 44px;
   height: 44px;
   display: block;
@@ -63,8 +63,8 @@ const AppLinkContainer = styled.div`
   display: flex;
 `;
 
-const AppLink = styled.a<{ icon: string }>`
-  background: url(${({ icon }) => icon}) no-repeat center / 118px auto;
+const AppLink = styled.a<{ $iconUrl: string }>`
+  background: url(${({ $iconUrl }) => $iconUrl}) no-repeat center / 118px auto;
   width: 118px;
   height: 34px;
   display: block;

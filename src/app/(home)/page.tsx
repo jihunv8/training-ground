@@ -24,6 +24,9 @@ export default function Home() {
           <li>
             <Link href="styled-components/korean-air">대한항공</Link>
           </li>
+          <li>
+            <Link href="styled-components/orion">오리온</Link>
+          </li>
         </ul>
       </section>
     </main>

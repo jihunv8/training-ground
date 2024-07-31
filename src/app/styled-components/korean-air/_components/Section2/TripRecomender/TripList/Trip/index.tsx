@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { parseMoney } from '@/app/styled-components/korean-air/_util/money';
+import { parseMoney } from '@/app/styled-components/korean-air/_utils/money';
 import { RecomendedTrip } from '@/app/styled-components/korean-air/_components/Section2/TripRecomender/mockTripsData';
 import Image from 'next/image';
 
