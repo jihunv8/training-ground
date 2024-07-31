@@ -1,5 +1,7 @@
+import './_src/styles/global.scss';
+
 import type { Metadata } from 'next';
-import favicon from './favicon.ico';
+import favicon from './_src/images/favicon.ico';
 
 export const metadata: Metadata = {
   title: 'Training Ground',

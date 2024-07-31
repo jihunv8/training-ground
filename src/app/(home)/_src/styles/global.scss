@@ -1,0 +1,11 @@
+@use './reset.scss';
+@use './colors';
+
+* {
+  box-sizing: border-box;
+  color: colors.$font-main;
+}
+
+button {
+  cursor: pointer;
+}

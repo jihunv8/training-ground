@@ -9,7 +9,7 @@
     "prefix": "nscss",
     "body": [
       "import style from './index.module.scss';",
-      "import { createClassNamer } from '@/utils/class-namer';",
+      "import { createClassNamer } from '@/modules/utils';",
       "",
       "const namer = createClassNamer(style);",
       "",

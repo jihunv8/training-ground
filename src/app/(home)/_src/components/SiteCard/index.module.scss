@@ -1,0 +1,50 @@
+@use '../../styles/colors';
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background-color: colors.$bg-card;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.thumbnail {
+  background-color: #282828;
+
+  > img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+
+    object-fit: contain;
+  }
+}
+
+.body {
+  padding: 20px 20px;
+
+  > .title {
+    font-size: 20px;
+  }
+
+  > .description {
+    margin-top: 10px;
+    color: colors.$font-sub;
+    font-size: 15px;
+  }
+}
+
+.footer {
+  padding: 0 20px 20px;
+
+  > .link-list {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+  }
+}

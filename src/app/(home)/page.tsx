@@ -1,32 +1,21 @@
-import Link from 'next/link';
+import SiteCard from '@/app/(home)/_src/components/SiteCard';
+import style from './page.module.scss';
+import { createClassNamer } from '@/modules/utils';
+
+import { siteCardData } from '@/app/(home)/_src/siteCardData';
+
+const namer = createClassNamer(style);
 
 export default function Home() {
   return (
-    <main>
-      <h1>Home Page</h1>
-      <section>
-        <h2>SASS</h2>
-        <ul>
-          <li>
-            <Link href="sass/splatoon3">splatoon3</Link>
-          </li>
-        </ul>
-      </section>
-      <section>
-        <h2>Styled Components</h2>
-        <ul>
-          <li>
-            <Link href="styled-components/music-edu">music education</Link>
-          </li>
-          <li>
-            <Link href="styled-components/construction">construction</Link>
-          </li>
-          <li>
-            <Link href="styled-components/korean-air">대한항공</Link>
-          </li>
-          <li>
-            <Link href="styled-components/orion">오리온</Link>
-          </li>
+    <main className={namer('wrapper')}>
+      <section className={namer('contents-area')}>
+        <ul className={namer('card-list')}>
+          {siteCardData.map((data) => (
+            <li>
+              <SiteCard data={data} />
+            </li>
+          ))}
         </ul>
       </section>
     </main>

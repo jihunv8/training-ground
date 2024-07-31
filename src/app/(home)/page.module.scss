@@ -1,0 +1,21 @@
+@use './_src/styles/colors';
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: colors.$bg-main;
+}
+
+.contents-area {
+  width: 1080px;
+  padding: 20px 0;
+}
+
+.card-list {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
