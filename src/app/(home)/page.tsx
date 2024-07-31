@@ -12,7 +12,7 @@ export default function Home() {
       <section className={namer('contents-area')}>
         <ul className={namer('card-list')}>
           {siteCardData.map((data) => (
-            <li>
+            <li key={data.id}>
               <SiteCard data={data} />
             </li>
           ))}
