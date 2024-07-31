@@ -59,7 +59,7 @@ export const siteCardData: Readonly<SiteCardData>[] = [
     thumbnail: orionThubnail,
     links: {
       deployment: 'styled-components/orion',
-      github: 'https://github.com/jihunv8/training-ground/blob/main/src/app/styled-components/orion/READEME.md',
+      github: 'https://github.com/jihunv8/training-ground/blob/main/src/app/styled-components/orion/README.md',
     },
     skills: [skillTable.styledComponrnts],
   },
@@ -70,7 +70,7 @@ export const siteCardData: Readonly<SiteCardData>[] = [
     thumbnail: koreanAirThubnail,
     links: {
       deployment: 'styled-components/korean-air',
-      github: 'https://github.com/jihunv8/training-ground/blob/main/src/app/styled-components/korean-air/READEME.md',
+      github: 'https://github.com/jihunv8/training-ground/blob/main/src/app/styled-components/korean-air/README.md',
     },
     skills: [skillTable.styledComponrnts],
   },
@@ -81,7 +81,7 @@ export const siteCardData: Readonly<SiteCardData>[] = [
     thumbnail: constructionThubnail,
     links: {
       deployment: 'styled-components/construction',
-      github: 'https://github.com/jihunv8/training-ground/blob/main/src/app/styled-components/construction/READEME.md',
+      github: 'https://github.com/jihunv8/training-ground/blob/main/src/app/styled-components/construction/README.md',
     },
     skills: [skillTable.styledComponrnts],
   },
@@ -92,7 +92,7 @@ export const siteCardData: Readonly<SiteCardData>[] = [
     thumbnail: musicEduThubnail,
     links: {
       deployment: 'styled-components/music-edu',
-      github: 'https://github.com/jihunv8/training-ground/blob/main/src/app/styled-components/music-edu/READEME.md',
+      github: 'https://github.com/jihunv8/training-ground/blob/main/src/app/styled-components/music-edu/README.md',
     },
     skills: [skillTable.styledComponrnts],
   },
